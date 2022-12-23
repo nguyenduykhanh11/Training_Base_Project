@@ -1,0 +1,16 @@
+<resources>
+    <string name="error_place_holder">Error Happend.Try again!</string>
+    <string name="timeout_error">Quá thời gian kết nối máy chủ</string>
+    <string name="lable_forget_password">Quên / Đổi mật khẩu</string>
+    <string name="lable_register_account"><u>Dăng ký tài khoản</u></string>
+    <string name="lable_title">Sức khoẻ trong tầm tay</string>
+    <string name="lable_title_another_login">Hoặc đăng nhập qua:</string>
+    <string name="btn_login_with_zalo">Đăng nhập với Zalo</string>
+    <string name="btn_login_with_facebook">Đăng nhập với Facebook</string>
+    <string name="btn_login_with_Apple">Đăng nhập với Apple</string>
+    <string name="btn_login_with_google">Đăng nhập với Google</string>
+    <string name="lable_account">HuongNT</string>
+    <integer name="activity_anim_duration">300</integer>
+    <integer name="activity_anim_duration_out">500</integer>
+
+</resources>
