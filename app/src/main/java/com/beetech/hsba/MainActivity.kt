@@ -1,5 +1,8 @@
 package com.beetech.hsba
 
+import android.os.Build
+import android.view.View
+import android.view.WindowManager
 import com.beetech.hsba.base.BaseActivity
 import com.beetech.hsba.ui.SplashFragment
 import com.beetech.hsba.ui.home.LoginFragment
@@ -18,6 +21,12 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        supportActionBar?.hide()
+        if (Build.VERSION.SDK_INT < 16) {
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
         getViewController().addFragment(SplashFragment::class.java)
     }
 

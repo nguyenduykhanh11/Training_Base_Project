@@ -7,6 +7,7 @@
     <color name="login_while">#FFFFFF</color>
     <color name="text_black1">#000000</color>
     <color name="icon_lobin_yellow">#F2B117</color>
-    <color name="bg_bottom_gray">#D6D6D6</color>
+    <color name="bg_bottom_gray">#E4E3E3</color>
     <color name="bg_activity_gray_while">#F2F2F2</color>
+    <color name="login_teel">#5CC2D1</color>
 </resources>
