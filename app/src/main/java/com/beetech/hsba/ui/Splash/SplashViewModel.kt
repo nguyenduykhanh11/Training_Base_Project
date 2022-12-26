@@ -1,4 +1,4 @@
-package com.beetech.hsba.ui
+package com.beetech.hsba.ui.Splash
 
 import com.beetech.hsba.base.BaseViewModel
 import com.beetech.hsba.network.Repository

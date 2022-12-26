@@ -40,13 +40,12 @@
             android:layout_height="@dimen/height_43_dp"
             android:layout_marginBottom="@dimen/margin_15_dp"
             android:background="@drawable/shape_background_input_account">
-
             <ImageView
                 android:id="@+id/imv_user_name"
                 android:layout_width="@dimen/width_46_dp"
                 android:layout_height="@dimen/width_46_dp"
                 android:background="@drawable/shape_bg_image"
-                android:padding="@dimen/context_padding_13_dp"
+                android:padding="11dp"
                 android:src="@drawable/vector_account"
                 tools:ignore="ContentDescription" />
 
@@ -80,7 +79,7 @@
                 android:layout_width="@dimen/width_46_dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_bg_image"
-                android:padding="@dimen/context_padding_14_dp"
+                android:padding="10dp"
                 android:src="@drawable/vector_password"
                 tools:ignore="ContentDescription" />
 

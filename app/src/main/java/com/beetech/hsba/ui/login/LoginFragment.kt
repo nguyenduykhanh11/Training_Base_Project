@@ -1,23 +1,16 @@
-package com.beetech.hsba.ui.home
+package com.beetech.hsba.ui.login
 
-import android.util.Log
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
-import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.extension.Category
 import com.beetech.hsba.extension.CategoryError
 import com.beetech.hsba.extension.stringVal
-import com.beetech.hsba.viewModel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.login_fragment.*
-import javax.inject.Inject
 
 class LoginFragment : BaseFragment() {
     private val viewModel: LoginViewModel by activityViewModels()
@@ -26,8 +19,6 @@ class LoginFragment : BaseFragment() {
     private val edtUserName: EditText? by lazy { view?.findViewById(R.id.edt_user_name) }
     private val edtPassword: EditText? by lazy { view?.findViewById(R.id.edt_password) }
     private val clContainer: ConstraintLayout? by lazy { view?.findViewById(R.id.cl_container) }
-    private var userName: String? =null
-    private var password: String? =null
 
     companion object{
         const val NULL = ""
@@ -75,7 +66,8 @@ class LoginFragment : BaseFragment() {
             getString(R.string.error_422)->{
                 return getString(R.string.str_login_error_422)
             }
-            else->{ NULL}
+            else->{ NULL
+            }
         }
     }
 

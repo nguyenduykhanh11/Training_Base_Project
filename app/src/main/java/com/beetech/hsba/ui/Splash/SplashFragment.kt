@@ -1,4 +1,4 @@
-package com.beetech.hsba.ui
+package com.beetech.hsba.ui.Splash
 
 import android.os.Handler
 import android.os.Looper
@@ -6,8 +6,7 @@ import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.fragment.app.viewModels
-import com.beetech.hsba.ui.home.HomeFragment
-import com.beetech.hsba.ui.home.LoginFragment
+import com.beetech.hsba.ui.login.LoginFragment
 
 @AndroidEntryPoint
 class SplashFragment : BaseFragment() {

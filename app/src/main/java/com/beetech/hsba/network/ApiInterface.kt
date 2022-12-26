@@ -4,9 +4,7 @@ package com.beetech.hsba.network
 import com.beetech.hsba.base.entity.BaseListLoadMoreResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.Login.Data
-import com.beetech.hsba.entity.Login.Login
 import com.beetech.hsba.entity.LoginRequest
-import com.beetech.hsba.entity.LoginResponse
 import com.beetech.hsba.entity.User
 import io.reactivex.Single
 import retrofit2.http.*

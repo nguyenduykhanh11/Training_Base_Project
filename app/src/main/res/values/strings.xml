@@ -17,7 +17,12 @@
     <string name="error_422">HTTP 422 Unprocessable Content</string>
     <string name="str_login_error_400">Đăng nhập thất bại. Vui lòng kiểm tra thông tin đăng nhập!</string>
     <string name="str_login_error_422">Email hoặc số điện thoại không hơp lệ.</string>
+    <string name="str_empty_username">Bạn chưa nhập tài khoản</string>
     <integer name="activity_anim_duration">300</integer>
     <integer name="activity_anim_duration_out">500</integer>
+    <string name="str_empty_password">Bạn chưa nhập password</string>
+    <string name="str_empty_all">Vui lòng nhập tài khoản và mật khẩu</string>
+    <string name="str_login_success">Đăng nhập thành công</string>
+
 
 </resources>

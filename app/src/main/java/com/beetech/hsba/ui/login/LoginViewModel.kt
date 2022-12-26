@@ -1,4 +1,4 @@
-package com.beetech.hsba.viewModel
+package com.beetech.hsba.ui.login
 
 import android.text.TextUtils
 import android.util.Log
@@ -6,13 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseViewModel
 import com.beetech.hsba.base.entity.BaseError
-import com.beetech.hsba.base.entity.BaseListLoadMoreResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
-import com.beetech.hsba.base.entity.BaseResponse
 import com.beetech.hsba.entity.Login.Data
-import com.beetech.hsba.entity.Login.Login
-import com.beetech.hsba.entity.LoginResponse
-import com.beetech.hsba.extension.ListLoadMoreResponse
 import com.beetech.hsba.extension.ObjectResponse
 import com.beetech.hsba.network.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel

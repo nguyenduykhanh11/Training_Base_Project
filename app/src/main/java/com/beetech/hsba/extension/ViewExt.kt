@@ -11,6 +11,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.viewpager.widget.ViewPager
+import com.beetech.hsba.BaseApplication.Companion.context
+import com.beetech.hsba.R
 
 fun View.visible() {
     visibility = View.VISIBLE
@@ -98,14 +100,12 @@ enum class Category{
     EmptyAccount,
     EmptyPassword,
     EmptyAll,
-    WrongAccount,
-    Successfully,
+    Successfully
 }
 val Category.CategoryError: String
     get() = when (this) {
-        Category.EmptyAccount -> "Bạn chưa nhập tài khoản"
-        Category.EmptyPassword -> "Bạn chưa nhập mật khẩu"
-        Category.EmptyAll -> "Vui lòng nhập tài khoản và mật khẩu"
-        Category.WrongAccount -> "Sai tài khoản hoặc mật khẩu"
-        Category.Successfully -> "Đăng nhập thành công"
+        Category.EmptyAccount -> context.getString(R.string.str_empty_username)
+        Category.EmptyPassword -> context.getString(R.string.str_empty_password)
+        Category.EmptyAll -> context.getString(R.string.str_empty_all)
+        Category.Successfully -> context.getString(R.string.str_login_success)
     }
