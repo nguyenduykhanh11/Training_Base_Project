@@ -16,7 +16,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-        
         getViewController().addFragment(SplashFragment::class.java)
     }
 

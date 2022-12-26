@@ -1,6 +1,5 @@
 package com.beetech.hsba.base.custom;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;

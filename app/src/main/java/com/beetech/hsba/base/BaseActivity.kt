@@ -1,9 +1,13 @@
 package com.beetech.hsba.base
 
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.beetech.hsba.R
-import com.beetech.hsba.extension.toast
 import com.beetech.hsba.network.NetworkCheckerInterceptor
 import com.beetech.hsba.network.entity.RequestError
 import com.beetech.hsba.utils.Define
@@ -11,7 +15,6 @@ import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
 import retrofit2.HttpException
 import java.io.IOException
-import java.lang.IllegalStateException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -30,8 +33,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutResId)
         viewController = ViewController(layoutId,supportFragmentManager)
+        handleFullScreen()
+        setContentView(layoutResId)
         initView()
         initData()
         initListener()
@@ -46,6 +50,28 @@ abstract class BaseActivity : AppCompatActivity() {
             super.onBackPressed()
         }
 
+    }
+    open fun handleFullScreen(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            window.attributes.layoutInDisplayCutoutMode =
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.setDecorFitsSystemWindows(false)
+            window.insetsController?.apply {
+                hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+                systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_IMMERSIVE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION)
+        }
     }
 
     open fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean): RequestError? {
@@ -94,7 +120,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         if (isShowDialog) {
             requestError.errorMessage?.let {
-                toast(it)
+//                toast("Error Get Api: $it")
             }
         }
         return requestError

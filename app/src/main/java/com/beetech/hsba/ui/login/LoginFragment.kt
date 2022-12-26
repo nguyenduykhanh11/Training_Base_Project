@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.activityViewModels
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
+import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.extension.Category
 import com.beetech.hsba.extension.CategoryError
@@ -20,9 +21,6 @@ class LoginFragment : BaseFragment() {
     private val edtPassword: EditText? by lazy { view?.findViewById(R.id.edt_password) }
     private val clContainer: ConstraintLayout? by lazy { view?.findViewById(R.id.cl_container) }
 
-    companion object{
-        const val NULL = ""
-    }
 
     override fun backFromAddFragment() {
 
@@ -47,26 +45,38 @@ class LoginFragment : BaseFragment() {
         }
     }
 
+
     override fun <U> getObjectResponse(data: U) {
-        if(data is Data){
-            Snackbar.make(clContainer!!, Category.Successfully.CategoryError, Snackbar.LENGTH_SHORT).show()
+        if (data is Data) {
+            Snackbar.make(clContainer!!, Category.Successfully.CategoryError, Snackbar.LENGTH_SHORT)
+                .show()
         }
     }
 
     override fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean) {
-        Snackbar.make(clContainer!!, catergotyError( throwable?.message.toString()), Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(
+            clContainer!!,
+            catergotyError(throwable?.message.toString()),
+            Snackbar.LENGTH_SHORT
+        ).show()
         super.handleNetworkError(throwable, isShowDialog)
     }
 
+    override fun handleValidateError(throwable: BaseError?) {
+        Snackbar.make(clContainer!!, throwable?.message.toString(), Snackbar.LENGTH_SHORT).show()
+        super.handleValidateError(throwable)
+    }
+
     private fun catergotyError(error: String): String {
-        return when(error){
-            getString(R.string.error_400)->{
+        return when (error) {
+            getString(R.string.error_400) -> {
                 return getString(R.string.str_login_error_400)
             }
-            getString(R.string.error_422)->{
+            getString(R.string.error_422) -> {
                 return getString(R.string.str_login_error_422)
             }
-            else->{ NULL
+            else -> {
+                getString(R.string.error_receiving_api)
             }
         }
     }
