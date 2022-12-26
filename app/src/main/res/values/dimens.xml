@@ -79,6 +79,8 @@
     <dimen name="width_0_dp">0dp</dimen>
     <dimen name="width_211_dp">211dp</dimen>
     <dimen name="width_320_dp">320dp</dimen>
+    <dimen name="width_46_dp">46dp</dimen>
+    <dimen name="height_43_dp">43dp</dimen>
 
 
 </resources>

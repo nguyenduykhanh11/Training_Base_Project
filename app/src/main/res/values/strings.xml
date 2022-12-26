@@ -9,8 +9,14 @@
     <string name="btn_login_with_facebook">Đăng nhập với Facebook</string>
     <string name="btn_login_with_Apple">Đăng nhập với Apple</string>
     <string name="btn_login_with_google">Đăng nhập với Google</string>
-    <string name="lable_account">HuongNT</string>
+    <string name="lable_account">demo1@example.com</string>
     <string name="btn_login">ĐĂNG NHẬP</string>
+    <string name="lable_password">Abcd!234</string>
+    <string name="str_login_validate_user_name">Bạn chưa nhập tài khoản</string>
+    <string name="error_400">HTTP 400 Bad Request</string>
+    <string name="error_422">HTTP 422 Unprocessable Content</string>
+    <string name="str_login_error_400">Đăng nhập thất bại. Vui lòng kiểm tra thông tin đăng nhập!</string>
+    <string name="str_login_error_422">Email hoặc số điện thoại không hơp lệ.</string>
     <integer name="activity_anim_duration">300</integer>
     <integer name="activity_anim_duration_out">500</integer>
 

@@ -2,6 +2,8 @@ package com.beetech.hsba.network
 
 import com.beetech.hsba.base.entity.BaseListLoadMoreResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
+import com.beetech.hsba.entity.Login.Data
+import com.beetech.hsba.entity.Login.Login
 import com.beetech.hsba.entity.LoginRequest
 import com.beetech.hsba.entity.LoginResponse
 import com.beetech.hsba.entity.User
@@ -17,7 +19,7 @@ class Repository @Inject constructor(val apiInterface: ApiInterface) {
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun login(username:String,password:String): Single<BaseObjectResponse<LoginResponse>> {
+    fun login(username:String,password:String): Single<BaseObjectResponse<Data>> {
         val loginRequest = LoginRequest()
         loginRequest.username = username
         loginRequest.password = password

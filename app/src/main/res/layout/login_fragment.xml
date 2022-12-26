@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_activity_gray_while"
@@ -34,87 +35,71 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/ll_lable_account">
 
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50_dp"
+            android:layout_height="@dimen/height_43_dp"
             android:layout_marginBottom="@dimen/margin_15_dp"
-            app:cardCornerRadius="@dimen/radius_22_5_dp">
+            android:background="@drawable/shape_background_input_account">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imv_user_name"
+                android:layout_width="@dimen/width_46_dp"
+                android:layout_height="@dimen/width_46_dp"
+                android:background="@drawable/shape_bg_image"
+                android:padding="@dimen/context_padding_13_dp"
+                android:src="@drawable/vector_account"
+                tools:ignore="ContentDescription" />
+
+            <EditText
+                android:id="@+id/edt_user_name"
+                android:layout_width="@dimen/width_0_dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_background_input_account"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="10">
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/context_padding_20_dp"
+                android:layout_toEndOf="@+id/imv_user_name"
+                android:background="@null"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:lines="1"
+                android:maxLength="25"
+                android:paddingStart="@dimen/context_padding_20_dp"
+                android:text="@string/lable_account"
+                android:textColor="@color/text_black1"
+                android:textSize="@dimen/textsize_16_sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor,RtlSymmetry" />
+        </RelativeLayout>
 
-                <ImageView
-                    android:layout_width="@dimen/width_0_dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:background="@color/icon_lobin_yellow"
-                    android:padding="@dimen/context_padding_13_dp"
-                    android:src="@drawable/vector_account"
-                    tools:ignore="ContentDescription" />
-
-                <EditText
-                    android:id="@+id/edt_account"
-                    android:layout_width="@dimen/width_0_dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8.5"
-                    android:background="@null"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:lines="1"
-                    android:maxLength="25"
-                    android:paddingStart="@dimen/context_padding_20_dp"
-                    android:text="@string/lable_account"
-                    android:textColor="@color/text_black1"
-                    android:textSize="@dimen/textsize_16_sp"
-                    android:textStyle="bold"
-                    tools:ignore="LabelFor,RtlSymmetry" />
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50_dp"
-            app:cardCornerRadius="@dimen/radius_22_5_dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:layout_height="@dimen/height_43_dp"
+            android:layout_marginBottom="@dimen/margin_15_dp"
+            android:background="@drawable/shape_background_input_account">
+            <ImageView
+                android:id="@+id/imv_password"
+                android:layout_width="@dimen/width_46_dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_background_input_account"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="10">
+                android:background="@drawable/shape_bg_image"
+                android:padding="@dimen/context_padding_14_dp"
+                android:src="@drawable/vector_password"
+                tools:ignore="ContentDescription" />
 
-                <ImageView
-                    android:layout_width="@dimen/width_0_dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:background="@color/icon_lobin_yellow"
-                    android:padding="@dimen/context_padding_14_dp"
-                    android:src="@drawable/vector_password"
-                    tools:ignore="ContentDescription" />
-
-                <EditText
-                    android:id="@+id/edt_password"
-                    android:layout_width="@dimen/width_0_dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8.5"
-                    android:background="@null"
-                    android:inputType="textPassword"
-                    android:lines="1"
-                    android:maxLength="25"
-                    android:paddingStart="@dimen/context_padding_20_dp"
-                    android:text="@string/lable_account"
-                    android:textColor="@color/text_black1"
-                    tools:ignore="Autofill,LabelFor,RtlSymmetry" />
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="@dimen/width_0_dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/margin_20_dp"
+                android:layout_toEndOf="@+id/imv_password"
+                android:background="@null"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLength="25"
+                android:paddingStart="@dimen/context_padding_20_dp"
+                android:text="@string/lable_password"
+                android:textColor="@color/text_black1"
+                tools:ignore="Autofill,LabelFor,RtlSymmetry" />
+        </RelativeLayout>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -145,11 +130,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"
         android:layout_width="@dimen/width_211_dp"
         android:layout_height="@dimen/height_45_dp"
-        android:backgroundTint="@color/login_teel"
+        android:background="@drawable/shape_bg_bottom_login"
         android:text="@string/btn_login"
         android:textAlignment="center"
         android:textColor="@color/login_while"

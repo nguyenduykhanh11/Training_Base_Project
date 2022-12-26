@@ -8,4 +8,5 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModel @Inject constructor(var repo: Repository) : BaseViewModel() {
 
+
 }

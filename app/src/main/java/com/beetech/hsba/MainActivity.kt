@@ -1,11 +1,10 @@
 package com.beetech.hsba
 
-import android.os.Build
-import android.view.View
-import android.view.WindowManager
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.beetech.hsba.base.BaseActivity
 import com.beetech.hsba.ui.SplashFragment
-import com.beetech.hsba.ui.home.LoginFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,12 +20,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-        supportActionBar?.hide()
-        if (Build.VERSION.SDK_INT < 16) {
-            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        }
+        
         getViewController().addFragment(SplashFragment::class.java)
     }
 
