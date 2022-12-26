@@ -11,4 +11,7 @@
     <color name="bg_activity_gray_while">#F2F2F2</color>
     <color name="login_teel1">#42A3B3</color>
     <color name="login_teel2">#5CC2D1</color>
+
+    <color name="icon_lobin_yellow1">#F0C32D</color>
+    <color name="icon_lobin_yellow2">#F2B117</color>
 </resources>
