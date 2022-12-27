@@ -11,22 +11,22 @@ class HomeFragment : BaseFragment() {
 
 
     override fun backFromAddFragment() {
-        
+
     }
 
     override val layoutId: Int
         get() = R.layout.home_fragment
 
     override fun initView() {
-        
+
     }
 
     override fun initData() {
-        
+
     }
 
     override fun initListener() {
-        
+
     }
 
     override fun backPressed(): Boolean {

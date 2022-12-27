@@ -1,6 +1,7 @@
 package com.beetech.hsba.base
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,15 +14,9 @@ import com.beetech.hsba.base.entity.BaseListResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.utils.Define
 
-abstract class BaseFragment : Fragment() {
-
+abstract class BaseFragment: Fragment() {
     private var viewController : ViewController? = null
 
-//    private val loadingDialog : LoadingDialog by lazy { LoadingDialog(requireContext()) }
-
-    override fun onDetach() {
-        super.onDetach()
-    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,7 +33,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     abstract fun backFromAddFragment()
-
+//
     @get: LayoutRes
     protected abstract val layoutId :  Int
     protected abstract fun initView()
@@ -86,6 +81,7 @@ abstract class BaseFragment : Fragment() {
             Define.ResponseStatus.ERROR -> {
                 hideLoading()
                 if (response.isShowingError) {
+                    Log.d("Log_msg", response.msg.toString())
                     handleNetworkError(response.error, true)
                 } else {
                     handleValidateError(response.error as? BaseError?)

@@ -1,8 +1,5 @@
 package com.beetech.hsba.ui.login
 
-import android.widget.Button
-import android.widget.EditText
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.activityViewModels
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
@@ -12,18 +9,12 @@ import com.beetech.hsba.extension.Category
 import com.beetech.hsba.extension.CategoryError
 import com.beetech.hsba.extension.stringVal
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.login_fragment.*
 
 class LoginFragment : BaseFragment() {
     private val viewModel: LoginViewModel by activityViewModels()
 
-    private val btnLogin: Button? by lazy { view?.findViewById(R.id.btn_login) }
-    private val edtUserName: EditText? by lazy { view?.findViewById(R.id.edt_user_name) }
-    private val edtPassword: EditText? by lazy { view?.findViewById(R.id.edt_password) }
-    private val clContainer: ConstraintLayout? by lazy { view?.findViewById(R.id.cl_container) }
-
-
     override fun backFromAddFragment() {
-
     }
 
     override val layoutId: Int
@@ -40,48 +31,51 @@ class LoginFragment : BaseFragment() {
     }
 
     override fun initListener() {
-        btnLogin?.setOnClickListener {
-            viewModel.login(edtUserName!!.stringVal, edtPassword!!.stringVal)
+        btn_login?.setOnClickListener {
+            viewModel.login(edt_user_name!!.stringVal, edt_password!!.stringVal)
         }
     }
 
 
     override fun <U> getObjectResponse(data: U) {
         if (data is Data) {
-            Snackbar.make(clContainer!!, Category.Successfully.CategoryError, Snackbar.LENGTH_SHORT)
+            Snackbar.make(cl_container, Category.Successfully.CategoryError, Snackbar.LENGTH_SHORT)
                 .show()
         }
     }
 
     override fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean) {
         Snackbar.make(
-            clContainer!!,
-            catergotyError(throwable?.message.toString()),
+            cl_container,
+            throwable?.message.toString(),
             Snackbar.LENGTH_SHORT
         ).show()
         super.handleNetworkError(throwable, isShowDialog)
     }
 
     override fun handleValidateError(throwable: BaseError?) {
-        Snackbar.make(clContainer!!, throwable?.message.toString(), Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(cl_container, throwable!!.error, Snackbar.LENGTH_SHORT).show()
         super.handleValidateError(throwable)
     }
 
-    private fun catergotyError(error: String): String {
-        return when (error) {
-            getString(R.string.error_400) -> {
-                return getString(R.string.str_login_error_400)
-            }
-            getString(R.string.error_422) -> {
-                return getString(R.string.str_login_error_422)
-            }
-            else -> {
-                getString(R.string.error_receiving_api)
-            }
-        }
-    }
+//    private fun catergotyError(error: String): String {
+//        return when (error) {
+//            getString(R.string.error_400) -> {
+//                return getString(R.string.str_login_error_400)
+//            }
+//            getString(R.string.error_422) -> {
+//                return getString(R.string.str_login_error_422)
+//            }
+//            else -> {
+//                getString(R.string.error_receiving_api)
+//            }
+//        }
+//    }
 
     override fun backPressed(): Boolean {
         return false
     }
+
+
+
 }

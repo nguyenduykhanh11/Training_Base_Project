@@ -23,6 +23,5 @@ interface ApiInterface {
 //    fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<LoginResponse>>
 
     @POST("user/login")
-    @Headers("Content-Type: application/json", "version: 2.0.0", "device: 1")
     fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<Data>>
 }

@@ -24,6 +24,7 @@
     <string name="str_empty_all">Vui lòng nhập tài khoản và mật khẩu</string>
     <string name="str_login_success">Đăng nhập thành công</string>
     <string name="error_receiving_api">Error Receiving Api</string>
+    <string name="disconect">Không có kêt nối</string>
 
 
 </resources>

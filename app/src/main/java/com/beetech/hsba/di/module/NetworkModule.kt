@@ -16,7 +16,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -52,9 +54,17 @@ class NetworkModule {
 //        val tokenInterceptor = TokenInterceptor()
         val networkCheckerInterceptor = NetworkCheckerInterceptor(context)
 
+        val interceptor = Interceptor { chain ->
+            val request: Request = chain.request()
+            val builder: Request.Builder = request.newBuilder()
+            builder.addHeader("Content-Type", "application/json")
+            builder.addHeader("version", "2.0.0")
+            builder.addHeader("device", "1")
+            chain.proceed(builder.build())
+        }
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-//            .addInterceptor(tokenInterceptor)
+            .addInterceptor(interceptor)
             .addInterceptor(networkCheckerInterceptor)
             .connectTimeout(Define.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(Define.DEFAULT_TIMEOUT, TimeUnit.SECONDS)

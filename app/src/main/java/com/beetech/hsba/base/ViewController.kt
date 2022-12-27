@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import com.beetech.hsba.R
-import java.util.*
 
 class ViewController(
     private val layoutId: Int = 0,

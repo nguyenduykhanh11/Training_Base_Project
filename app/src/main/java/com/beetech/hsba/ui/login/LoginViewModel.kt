@@ -1,7 +1,6 @@
 package com.beetech.hsba.ui.login
 
 import android.text.TextUtils
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.beetech.hsba.BaseApplication.Companion.context
 import com.beetech.hsba.R
@@ -27,11 +26,9 @@ class LoginViewModel @Inject constructor(var repo: Repository): BaseViewModel() 
                     .subscribe(
                         {
                             data.value = BaseObjectResponse<Data>().success(it.data!!)
-//                        Log.v("this","data ${it.msg}")
                         },
                         {
                             data.value = BaseObjectResponse<Data>().error(it)
-                            Log.v("this","data $it")
                         }
                     )
             )
