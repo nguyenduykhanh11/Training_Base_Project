@@ -3,6 +3,7 @@
     <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#03A9F4</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="textinput_default_box_stroke_color" tools:override="true">#FFFFCC40</color>
 
     <color name="login_while">#FFFFFF</color>
     <color name="text_black1">#000000</color>
@@ -20,7 +21,5 @@
     <color name="bg_register_yellow_top">#FFCC40</color>
 
     <color name="bg_register_gray">#F2F2F2</color>
-    <color name="textinput_default_box_stroke_color" tools:override="true">#FFFFCC40</color>
-
 
 </resources>

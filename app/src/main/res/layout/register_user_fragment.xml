@@ -34,14 +34,14 @@
         app:layout_constraintTop_toBottomOf="@+id/fl_header_layout">
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/width_46_dp"
             app:boxCornerRadiusBottomEnd="@dimen/radius_22_5_dp"
             app:boxCornerRadiusBottomStart="@dimen/radius_22_5_dp"
             app:boxCornerRadiusTopEnd="@dimen/radius_22_5_dp"
             app:boxCornerRadiusTopStart="@dimen/radius_22_5_dp"
-            app:boxStrokeColor="@color/textinput_default_box_stroke_color"
+            app:boxStrokeWidth="1dp"
             app:startIconDrawable="@drawable/vector_account"
             app:startIconTint="@color/bg_register_yellow_center">
 
