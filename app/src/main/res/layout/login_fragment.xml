@@ -16,6 +16,7 @@
             android:id="@+id/imv_logo"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_183_82_dp"
+            android:layout_marginTop="16.68dp"
             android:padding="@dimen/content_padding_12_dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_logo"
@@ -98,12 +99,12 @@
                     android:background="@null"
                     android:fontFamily="@font/roboto_bold"
                     android:inputType="textPassword"
-                    android:textSize="@dimen/textsize_16_sp"
                     android:lines="1"
                     android:maxLength="25"
                     android:paddingStart="11.9dp"
                     android:text="@string/lable_password"
                     android:textColor="@color/text_black1"
+                    android:textSize="@dimen/textsize_16_sp"
                     tools:ignore="Autofill,LabelFor,RtlSymmetry" />
             </RelativeLayout>
         </LinearLayout>
@@ -141,9 +142,9 @@
             android:layout_height="@dimen/height_45_dp"
             android:layout_marginTop="@dimen/margin_29_5_dp"
             android:background="@drawable/shape_bg_bottom_login"
+            android:fontFamily="@font/roboto_regular"
             android:text="@string/btn_login"
             android:textAlignment="center"
-            android:fontFamily="@font/roboto_regular"
             android:textColor="@color/login_while"
             android:textSize="@dimen/textsize_16_sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -167,31 +168,32 @@
                 android:textSize="@dimen/textsize_16_sp" />
 
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login_with_zalo"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_55_dp"
+                android:layout_height="@dimen/height_45_dp"
                 android:layout_marginTop="@dimen/margin_14_5_dp"
-                android:backgroundTint="@color/bg_bottom_gray"
+                android:background="@drawable/shape_bg_login_other"
                 android:drawableLeft="@drawable/image_zalo"
+                android:drawablePadding="15.5dp"
                 android:fontFamily="@font/roboto_regular"
                 android:paddingStart="@dimen/margin_18_dp"
                 android:text="@string/btn_login_with_zalo"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
-                app:iconPadding="15.5dp"
                 android:textColor="@color/text_black1"
                 android:textSize="@dimen/textsize_16_sp"
                 app:cornerRadius="@dimen/radius_8_dp"
                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login_with_facebook"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_55_dp"
-                android:layout_marginTop="7dp"
-                android:backgroundTint="@color/bg_bottom_gray"
+                android:layout_height="@dimen/height_45_dp"
+                android:layout_marginTop="@dimen/margin_12_dp"
+                android:background="@drawable/shape_bg_login_other"
                 android:drawableLeft="@drawable/image_facebook"
+                android:drawablePadding="15.5dp"
                 android:fontFamily="@font/roboto_regular"
                 android:paddingStart="@dimen/margin_18_dp"
                 android:text="@string/btn_login_with_facebook"
@@ -200,28 +202,25 @@
                 android:textColor="@color/text_black1"
                 android:textSize="@dimen/textsize_16_sp"
                 app:cornerRadius="@dimen/radius_8_dp"
-                app:iconPadding="15.5dp"
-
                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login_with_google"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_55_dp"
-                android:layout_marginTop="7dp"
-                android:backgroundTint="@color/bg_bottom_gray"
+                android:layout_height="@dimen/height_45_dp"
+                android:layout_marginTop="@dimen/margin_12_dp"
+                android:background="@drawable/shape_bg_login_other"
                 android:drawableLeft="@drawable/image_google"
+                android:drawablePadding="17.5dp"
+                android:fontFamily="@font/roboto_regular"
                 android:paddingStart="19.5dp"
                 android:text="@string/btn_login_with_google"
                 android:textAlignment="textStart"
-                android:fontFamily="@font/roboto_regular"
                 android:textAllCaps="false"
-                app:iconPadding="17.5dp"
                 android:textColor="@color/text_black1"
                 android:textSize="@dimen/textsize_16_sp"
                 app:cornerRadius="@dimen/radius_8_dp"
                 tools:ignore="RtlHardcoded,RtlSymmetry" />
-
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
