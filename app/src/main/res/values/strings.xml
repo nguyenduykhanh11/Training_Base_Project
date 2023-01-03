@@ -50,6 +50,8 @@
     <string name="label_surgery">Ngoại khoa</string>
     <string name="title_highlights">Nổi bật</string>
     <string name="lable_notification">2</string>
+    <string name="lable_specialist">Chuyên khoa</string>
+    <string name="lable_service">Dịch vụ</string>
 
 
 </resources>
