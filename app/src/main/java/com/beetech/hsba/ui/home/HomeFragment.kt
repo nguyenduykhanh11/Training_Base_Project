@@ -25,13 +25,6 @@ class HomeFragment : BaseFragment() {
     private val list = mutableListOf<Advertisement>()
 
     override fun backFromAddFragment() {
-        vp_advertisenment.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                handle.removeCallbacks(runnable)
-                handle.postDelayed(runnable, 5000)
-            }
-        })
     }
 
     override val layoutId: Int
@@ -49,6 +42,17 @@ class HomeFragment : BaseFragment() {
 
     override fun initListener() {
         handleViewPegerAdver()
+        setUpActivityViewPeger()
+    }
+
+    private fun setUpActivityViewPeger() {
+        vp_advertisenment.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                handle.removeCallbacks(runnable)
+                handle.postDelayed(runnable, 5000)
+            }
+        })
     }
 
     private fun handleViewPegerAdver() {
