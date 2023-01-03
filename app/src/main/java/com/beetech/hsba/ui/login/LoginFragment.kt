@@ -8,6 +8,7 @@ import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.extension.Category
 import com.beetech.hsba.extension.CategoryError
 import com.beetech.hsba.extension.stringVal
+import com.beetech.hsba.ui.home.HomeFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.login_fragment.*
 
@@ -41,6 +42,7 @@ class LoginFragment : BaseFragment() {
         if (data is Data) {
             Snackbar.make(cl_container, Category.Successfully.CategoryError, Snackbar.LENGTH_SHORT)
                 .show()
+            getVC().replaceFragment(HomeFragment::class.java)
         }
     }
 

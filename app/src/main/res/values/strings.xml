@@ -25,6 +25,31 @@
     <string name="str_login_success">Đăng nhập thành công</string>
     <string name="error_receiving_api">Error Receiving Api</string>
     <string name="disconect">Không có kêt nối</string>
+    <string name="btn_header_left_top">Hồ sơ bệnh án</string>
+    <string name="btn_header_right_top">Liên hệ bác sĩ tư vấn</string>
+    <string name="btn_header_left_bottom">Cập nhật kết quả xét nghiệp</string>
+    <string name="btn_header_right_bottom">Đặt lịch khám</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_patient">Khám bệnh</string>
+    <string name="title_test">Xét nghiệm</string>
+    <string name="title_brief">Hồ sơ</string>
+    <string name="title_account">Tài khoản</string>
+    <string name="lable_name">Nguyễn Thu Hương</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lable_infectious_hepatitis">Truyền nhiễm - Viêm gan</string>
+    <string name="label_endocrine_diabetes">Nội tiết - Đái tháo đường</string>
+    <string name="label_heart_blood_pressure">Tim mạch - Huyết áp</string>
+    <string name="label_tumor">Ung bướu</string>
+    <string name="label_urinary_kidney">Thận - Tiết niệu</string>
+    <string name="label_digestion">Tiêu hoá</string>
+    <string name="label_musculoskeletal">Cơ xương khớp</string>
+    <string name="label_Respiratory_copd">Hô hấp - COPD</string>
+    <string name="lable_ear_nose_throat">Tai - Mủi - Họng</string>
+    <string name="label_dentomaxillofacial">Răng - Hàm - Mặt</string>
+    <string name="label_surgery">Ngoại khoa</string>
+    <string name="title_highlights">Nổi bật</string>
+    <string name="lable_notification">2</string>
 
 
 </resources>

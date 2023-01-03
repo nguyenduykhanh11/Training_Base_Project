@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="561dp"
+    android:paddingStart="26dp"
+    android:paddingEnd="26dp"
+    android:background="@drawable/shape_boder_radius_tab1_viewpeger"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_gan"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/lable_infectious_hepatitis"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_noitiet"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_endocrine_diabetes"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_10_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_tim"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_heart_blood_pressure"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_ung_buou"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_tumor"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_than"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_urinary_kidney"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_ruot"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_digestion"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_xuong"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_musculoskeletal"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_phoi"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_Respiratory_copd"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_tai_mui"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/lable_ear_nose_throat"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_rang"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_dentomaxillofacial"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="@dimen/margin_12_dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/image_ngoai_k"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_surgery"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_20_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+    </LinearLayout>
+</LinearLayout>

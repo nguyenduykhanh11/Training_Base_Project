@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/menu_home"
+        android:iconTint="@color/icon_gray"
+        android:title="@string/title_home"/>
+    <item
+        android:id="@+id/menu_patient"
+        android:icon="@drawable/menu_patient"
+        android:iconTint="@color/icon_gray"
+        android:title="@string/title_patient"/>
+    <item
+        android:id="@+id/menu_test"
+        android:icon="@drawable/menu_test"
+        android:iconTint="@color/icon_gray"
+        android:title="@string/title_test"/>
+    <item
+        android:id="@+id/menu_brief"
+        android:icon="@drawable/menu_brief"
+        android:iconTint="@color/icon_gray"
+        android:title="@string/title_brief"/>
+    <item
+        android:id="@+id/menu_account"
+        android:icon="@drawable/menu_account"
+        android:iconTint="@color/icon_gray"
+        android:title="@string/title_account"/>
+</menu>

@@ -219,6 +219,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/text_black1"
                 android:textSize="@dimen/textsize_16_sp"
+                android:layout_marginBottom="@dimen/margin_6_dp"
                 app:cornerRadius="@dimen/radius_8_dp"
                 tools:ignore="RtlHardcoded,RtlSymmetry" />
         </LinearLayout>
