@@ -262,7 +262,7 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_advertisenment"
                     android:layout_width="match_parent"
-                    android:layout_height="131.5dp"
+                    android:layout_height="115.5dp"
                     android:layout_marginTop="14dp"
                     android:paddingStart="59dp"
                     android:paddingEnd="59dp" />
