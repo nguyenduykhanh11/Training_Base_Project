@@ -1,15 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="561dp"
+android:paddingStart="26dp"
+android:paddingEnd="26dp"
+android:background="@drawable/shape_boder_radius_tab2_viewpeger"
+android:orientation="vertical">
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/shape_boder_radius_tab2_viewpeger"
-    tools:context=".ui.service.ServiceFragment">
-
-
+    android:layout_height="50dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/image_kham_tong_quat"
+        android:drawablePadding="9dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/lable_kham_tong_quat"
+        android:textColor="@color/md_black_1000"
+        android:textSize="@dimen/textsize_20_sp"
+        tools:ignore="UseCompatTextViewDrawableXml" />
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="@dimen/margin_12_dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_line" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/image_tam_soat_ung_t"
+        android:drawablePadding="9dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/lable_tam_soat_ung_thu"
+        android:textColor="@color/md_black_1000"
+        android:textSize="@dimen/textsize_20_sp"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="@dimen/margin_10_dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_line" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/image_lay_mau"
+        android:drawablePadding="9dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/lable_lay_mau"
+        android:textColor="@color/md_black_1000"
+        android:textSize="@dimen/textsize_20_sp"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="@dimen/margin_12_dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_line" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/image_cham_soc_y_te"
+        android:drawablePadding="9dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/lable_cham_soc_y_te"
+        android:textColor="@color/md_black_1000"
+        android:textSize="@dimen/textsize_20_sp"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="@dimen/margin_12_dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_line" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/image_kham_suc_khoe_co_quan"
+        android:drawablePadding="9dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/lable_kham_suc_khoe_co_quan"
+        android:textColor="@color/md_black_1000"
+        android:textSize="@dimen/textsize_20_sp"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+</LinearLayout>
+</LinearLayout>

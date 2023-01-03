@@ -1,4 +1,4 @@
-package com.beetech.hsba.ui.adapter
+package com.beetech.hsba.base.adapter.adapterHome
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

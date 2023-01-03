@@ -1,4 +1,4 @@
-package com.beetech.hsba.ui.home
+package com.beetech.hsba.base.adapter.adapterHome
 
 import android.view.LayoutInflater
 import android.view.View

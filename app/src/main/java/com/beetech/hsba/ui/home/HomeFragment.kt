@@ -9,8 +9,9 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
+import com.beetech.hsba.base.adapter.adapterHome.HomeAdvertisementAdapter
+import com.beetech.hsba.base.adapter.adapterHome.ViewPegerAdapter
 import com.beetech.hsba.entity.home.Advertisement
-import com.beetech.hsba.ui.adapter.ViewPegerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -66,7 +67,7 @@ class HomeFragment : BaseFragment() {
         vp_advertisenment.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         vp_advertisenment.orientation =  ViewPager2.ORIENTATION_HORIZONTAL
         val transformer = CompositePageTransformer().apply {
-            addTransformer(MarginPageTransformer(10))
+            addTransformer(MarginPageTransformer(20))
         }
         vp_advertisenment.setPageTransformer(transformer)
     }

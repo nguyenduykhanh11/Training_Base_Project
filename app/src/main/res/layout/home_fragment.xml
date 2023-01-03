@@ -255,6 +255,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="23dp"
                     android:text="@string/title_highlights"
+                    android:fontFamily="@font/roboto_medium"
                     android:textColor="@color/md_black_1000"
                     android:textSize="@dimen/textsize_20_sp" />
 

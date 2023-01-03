@@ -52,6 +52,14 @@
     <string name="lable_notification">2</string>
     <string name="lable_specialist">Chuyên khoa</string>
     <string name="lable_service">Dịch vụ</string>
+    <string name="lable_kham_suc_khoe_co_quan">Khám sức khoẻ cơ quan</string>
+    <string name="lable_cham_soc_y_te">Chăm sóc y tế tại nhà</string>
+    <string name="lable_lay_mau">Lấy máu tại nhà</string>
+    <string name="lable_tam_soat_ung_thu">Tầm soát ung thư</string>
+    <string name="lable_kham_tong_quat">Khám tổng quát</string>
+    <string name="dialog_title_my_pref">my_pref_login</string>
+    <string name="dialog_title_key_pref">Save_pref_login</string>
+    <string name="lable_Logged">Chào mừng trở lại</string>
 
 
 </resources>

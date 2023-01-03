@@ -100,7 +100,8 @@ enum class Category{
     EmptyAccount,
     EmptyPassword,
     EmptyAll,
-    Successfully
+    Successfully,
+    Logged
 }
 val Category.CategoryError: String
     get() = when (this) {
@@ -108,4 +109,14 @@ val Category.CategoryError: String
         Category.EmptyPassword -> context.getString(R.string.str_empty_password)
         Category.EmptyAll -> context.getString(R.string.str_empty_all)
         Category.Successfully -> context.getString(R.string.str_login_success)
+        Category.Logged -> context.getString(R.string.lable_Logged)
     }
+
+enum class SharePref{
+    MyPref,
+    KeyPref}
+
+val SharePref.CategotySharePref: String
+    get() = when (this) {
+        SharePref.MyPref -> context.getString(R.string.dialog_title_key_pref)
+        SharePref.KeyPref -> context.getString(R.string.dialog_title_key_pref)}
