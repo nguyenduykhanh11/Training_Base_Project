@@ -56,8 +56,8 @@ class SplashFragment : BaseFragment() {
             Handler(it).postDelayed({
                 if (status){
                     getVC().replaceFragment(HomeFragment::class.java)
-                    Snackbar.make(splash_container, Category.Logged.CategoryError, Snackbar.LENGTH_SHORT)
-                        .show()
+//                    Snackbar.make(splash_container, Category.Logged.CategoryError, Snackbar.LENGTH_SHORT)
+//                        .show()
                 }else{
                     getVC().replaceFragment(LoginFragment::class.java)
                 }

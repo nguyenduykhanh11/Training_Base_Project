@@ -2,10 +2,13 @@ package com.beetech.hsba.network
 
 
 import com.beetech.hsba.base.entity.BaseListLoadMoreResponse
+import com.beetech.hsba.base.entity.BaseListResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.entity.LoginRequest
 import com.beetech.hsba.entity.User
+import com.beetech.hsba.entity.home.Services
+import com.beetech.hsba.entity.home.Specialtys
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -22,6 +25,16 @@ interface ApiInterface {
 //    @Headers("Content-Type: application/json")
 //    fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<LoginResponse>>
 
+//    Login
     @POST("user/login")
     fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<Data>>
+
+//    Data Specialty
+    @GET("user/specialty")
+    fun getDataSpecialtys() : Single<BaseListResponse<Specialtys>>
+
+//    Data Service
+    @GET("user/services")
+    fun getDataServices() : Single<BaseListResponse<Services>>
+
 }

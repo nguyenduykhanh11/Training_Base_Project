@@ -73,7 +73,7 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun backPressed(): Boolean {
-        return false
+        return true
     }
     private fun addDataImage() {
         list.add(Advertisement(R.drawable.bia))
