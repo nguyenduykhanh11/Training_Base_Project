@@ -120,3 +120,5 @@ val SharePref.CategotySharePref: String
     get() = when (this) {
         SharePref.MyPref -> context.getString(R.string.dialog_title_key_pref)
         SharePref.KeyPref -> context.getString(R.string.dialog_title_key_pref)}
+
+val KEY_BUNDLE = context.getString(R.string.tab_status_tablayout)

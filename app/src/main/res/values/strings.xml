@@ -60,4 +60,5 @@
     <string name="dialog_title_my_pref">my_pref_login</string>
     <string name="dialog_title_key_pref">Save_pref_login</string>
     <string name="lable_Logged">Chào mừng trở lại</string>
+    <string name="tab_status_tablayout">status</string>
 </resources>

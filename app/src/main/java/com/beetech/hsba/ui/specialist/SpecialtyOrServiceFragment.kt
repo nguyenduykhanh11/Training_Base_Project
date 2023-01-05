@@ -9,11 +9,14 @@ import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.adapterHome.SpecialtyOrServiceAdapter
 import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.home.SpecialtysOrService
+import com.beetech.hsba.extension.KEY_BUNDLE
 import kotlinx.android.synthetic.main.fragment_specialist_or_service.*
 
-class SpecialtyOrServiceFragment(private val status: Boolean) : BaseFragment() {
+class SpecialtyOrServiceFragment() : BaseFragment() {
     private val viewModel: SpecialtyViewModel by activityViewModels()
     private lateinit var mAdapter: SpecialtyOrServiceAdapter
+    private var position = 0
+
     override fun backFromAddFragment() {
     }
 
@@ -25,14 +28,22 @@ class SpecialtyOrServiceFragment(private val status: Boolean) : BaseFragment() {
 
 
     override fun initData() {
+        initGetStatusFormHomeFrag()
         getDataSpecialty()
     }
+
 
     override fun initListener() {
     }
 
     override fun backPressed(): Boolean {
         return false
+    }
+
+    private fun initGetStatusFormHomeFrag() {
+        if (arguments != null){
+            position = arguments?.getInt(KEY_BUNDLE)!!
+        }
     }
 
     override fun <U> getListResponse(data: List<U>?) {
@@ -60,7 +71,7 @@ class SpecialtyOrServiceFragment(private val status: Boolean) : BaseFragment() {
     }
 
     private fun getDataSpecialty() {
-        if (status){
+        if (position == 0){
             viewModel.apply {
                 getDataSpecialtys()
                 dataSpecialty.observe(viewLifecycleOwner) {
