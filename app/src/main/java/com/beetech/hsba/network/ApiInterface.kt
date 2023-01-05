@@ -7,8 +7,7 @@ import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.entity.LoginRequest
 import com.beetech.hsba.entity.User
-import com.beetech.hsba.entity.home.Services
-import com.beetech.hsba.entity.home.Specialtys
+import com.beetech.hsba.entity.home.SpecialtysOrService
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -31,10 +30,10 @@ interface ApiInterface {
 
 //    Data Specialty
     @GET("user/specialty")
-    fun getDataSpecialtys() : Single<BaseListResponse<Specialtys>>
+    fun getDataSpecialtys() : Single<BaseListResponse<SpecialtysOrService>>
 
 //    Data Service
     @GET("user/services")
-    fun getDataServices() : Single<BaseListResponse<Services>>
+    fun getDataServices() : Single<BaseListResponse<SpecialtysOrService>>
 
 }

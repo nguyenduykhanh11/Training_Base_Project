@@ -6,22 +6,21 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
-import com.beetech.hsba.base.adapter.adapterHome.SpecialtyAdapter
+import com.beetech.hsba.base.adapter.adapterHome.SpecialtyOrServiceAdapter
 import com.beetech.hsba.base.entity.BaseError
-import com.beetech.hsba.entity.home.Specialtys
-import kotlinx.android.synthetic.main.fragment_specialist.*
+import com.beetech.hsba.entity.home.SpecialtysOrService
+import kotlinx.android.synthetic.main.fragment_specialist_or_service.*
 
-class SpecialistFragment : BaseFragment() {
+class SpecialtyOrServiceFragment(private val status: Boolean) : BaseFragment() {
     private val viewModel: SpecialtyViewModel by activityViewModels()
-    private lateinit var mAdapter: SpecialtyAdapter
+    private lateinit var mAdapter: SpecialtyOrServiceAdapter
     override fun backFromAddFragment() {
     }
 
     override val layoutId: Int
-        get() = R.layout.fragment_specialist
+        get() = R.layout.fragment_specialist_or_service
 
     override fun initView() {
-        createViewModel()
     }
 
 
@@ -53,21 +52,35 @@ class SpecialistFragment : BaseFragment() {
     }
 
     private fun <U> setUpViewRecyclerView(data: List<U>?) {
-        mAdapter = SpecialtyAdapter(data as List<Specialtys>)
-        rv_specialty.apply {
+        mAdapter = SpecialtyOrServiceAdapter(data as List<SpecialtysOrService>)
+        rv_specialty_or_service.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             this.adapter = mAdapter
         }
     }
 
-    private fun createViewModel() {
-        viewModel.getDataSpecialtys()
+    private fun getDataSpecialty() {
+        if (status){
+            viewModel.apply {
+                getDataSpecialtys()
+                dataSpecialty.observe(viewLifecycleOwner) {
+                    handleListResponse(it)
+                }
+            }
+            setUpView(R.drawable.shape_boder_radius_tab1_viewpeger)
+        }else{
+            viewModel.apply {
+                getDataService()
+                dataService.observe(viewLifecycleOwner) {
+                    handleListResponse(it)
+                }
+            }
+            setUpView(R.drawable.shape_boder_radius_tab2_viewpeger)
+        }
     }
 
-    private fun getDataSpecialty() {
-        viewModel.data.observe(viewLifecycleOwner) {
-            handleListResponse(it)
-        }
+    private fun setUpView(drawable: Int) {
+        ll_container.setBackgroundResource(drawable)
     }
 
 }

@@ -3,7 +3,7 @@ package com.beetech.hsba.ui.specialist
 import androidx.lifecycle.MutableLiveData
 import com.beetech.hsba.base.BaseViewModel
 import com.beetech.hsba.base.entity.BaseListResponse
-import com.beetech.hsba.entity.home.Specialtys
+import com.beetech.hsba.entity.home.SpecialtysOrService
 import com.beetech.hsba.extension.ListResponse
 import com.beetech.hsba.network.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,19 +11,32 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SpecialtyViewModel @Inject constructor(var repo: Repository): BaseViewModel() {
-    var data: ListResponse<Specialtys> = MutableLiveData()
+    var dataSpecialty: ListResponse<SpecialtysOrService> = MutableLiveData()
+    var dataService: ListResponse<SpecialtysOrService> = MutableLiveData()
+
     fun getDataSpecialtys(){
         mDisposable.add(
             repo.getDataSpecialtys()
-//                .doOnSubscribe {
-//                    data.value = BaseListResponse<Services>().loading()
-//                }
                 .subscribe(
                     {
-                        data.value = BaseListResponse<Specialtys>().success(it.data)
+                        dataSpecialty.value = BaseListResponse<SpecialtysOrService>().success(it.data)
                     },
                     {
-                        data.value = BaseListResponse<Specialtys>().error(it)
+                        dataSpecialty.value = BaseListResponse<SpecialtysOrService>().error(it)
+                    }
+                )
+        )
+    }
+
+    fun getDataService(){
+        mDisposable.add(
+            repo.getDataService()
+                .subscribe(
+                    {
+                        dataService.value = BaseListResponse<SpecialtysOrService>().success(it.data)
+                    },
+                    {
+                        dataService.value = BaseListResponse<SpecialtysOrService>().error(it)
                     }
                 )
         )

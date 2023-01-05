@@ -1,9 +1,8 @@
 package com.beetech.hsba.entity.home
 
-data class Services(
+data class SpecialtysOrService(
     val description: String,
     val icon: String,
     val id: Int,
-    val image_web: String,
     val name: String
 )

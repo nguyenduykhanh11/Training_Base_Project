@@ -6,8 +6,7 @@ import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.entity.LoginRequest
 import com.beetech.hsba.entity.User
-import com.beetech.hsba.entity.home.Services
-import com.beetech.hsba.entity.home.Specialtys
+import com.beetech.hsba.entity.home.SpecialtysOrService
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -29,13 +28,13 @@ class Repository @Inject constructor(val apiInterface: ApiInterface) {
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getDataSpecialtys(): Single<BaseListResponse<Specialtys>> {
+    fun getDataSpecialtys(): Single<BaseListResponse<SpecialtysOrService>> {
         return apiInterface.getDataSpecialtys()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getDataService(): Single<BaseListResponse<Services>> {
+    fun getDataService(): Single<BaseListResponse<SpecialtysOrService>> {
         return apiInterface.getDataServices()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

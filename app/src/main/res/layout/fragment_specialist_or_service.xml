@@ -6,6 +6,7 @@
     android:paddingStart="26dp"
     android:paddingEnd="26dp"
     android:paddingTop="10dp"
+    android:id="@+id/ll_container"
     android:background="@drawable/shape_boder_radius_tab1_viewpeger"
     android:orientation="vertical">
 <!--    <LinearLayout-->
@@ -257,7 +258,7 @@
 <!--            tools:ignore="UseCompatTextViewDrawableXml" />-->
 <!--    </LinearLayout>-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_specialty"
+        android:id="@+id/rv_specialty_or_service"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
