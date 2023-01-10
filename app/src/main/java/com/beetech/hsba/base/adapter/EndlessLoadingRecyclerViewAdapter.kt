@@ -3,6 +3,7 @@ package com.beetech.hsba.base.adapter
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.Nullable
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -81,7 +82,7 @@ abstract class EndlessLoadingRecyclerViewAdapter(context: Context, enableSelecte
 
     override fun solvedOnCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): RecyclerView.ViewHolder {
         val result: RecyclerView.ViewHolder
         when (viewType) {
@@ -99,7 +100,7 @@ abstract class EndlessLoadingRecyclerViewAdapter(context: Context, enableSelecte
     override fun solvedOnBindViewHolder(
         viewHolder: RecyclerView.ViewHolder,
         viewType: Int,
-        position: Int
+        position: Int,
     ) {
         when (viewType) {
             VIEW_TYPE_LOADING -> {

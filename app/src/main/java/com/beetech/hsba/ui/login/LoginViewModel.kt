@@ -49,6 +49,7 @@ class LoginViewModel @Inject constructor(var repo: Repository): BaseViewModel() 
         }
     }
 
+
     private fun checkValidate(userName: String, password: String): Boolean {
         if(TextUtils.isEmpty(userName)&&TextUtils.isEmpty(password)){
             data.value = BaseObjectResponse<Data>().error(

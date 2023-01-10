@@ -61,4 +61,13 @@
     <string name="dialog_title_key_pref">Save_pref_login</string>
     <string name="lable_Logged">Chào mừng trở lại</string>
     <string name="tab_status_tablayout">status</string>
+    <string name="lable_text_kqxt_mau">KQXT Máu</string>
+    <string name="lable_test_file">File đính kèm</string>
+    <string name="lable_test_image">Ảnh</string>
+    <string name="url_storage">http://hsba-v2.beetechdev.vn:1680/storage/</string>
+    <string name="lable_delete">Xoá</string>
+    <string name="text_ThS">ThS</string>
+    <string name="text_TS">TS</string>
+    <string name="settext_tien_si">Tiến sỹ</string>
+    <string name="settext_thac_si">Thạc sỹ</string>
 </resources>

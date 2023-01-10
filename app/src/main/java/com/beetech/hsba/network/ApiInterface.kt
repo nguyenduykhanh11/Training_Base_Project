@@ -6,6 +6,7 @@ import com.beetech.hsba.base.entity.BaseListResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.entity.LoginRequest
+import com.beetech.hsba.entity.Test.Test
 import com.beetech.hsba.entity.User
 import com.beetech.hsba.entity.home.SpecialtysOrService
 import io.reactivex.Single
@@ -20,10 +21,6 @@ interface ApiInterface {
         @Query("page") page: Int
     ): Single<BaseListLoadMoreResponse<User>>
 
-//    @POST("/api/auth/login/customer")
-//    @Headers("Content-Type: application/json")
-//    fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<LoginResponse>>
-
 //    Login
     @POST("user/login")
     fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<Data>>
@@ -36,4 +33,7 @@ interface ApiInterface {
     @GET("user/services")
     fun getDataServices() : Single<BaseListResponse<SpecialtysOrService>>
 
+//    Get Data Test
+    @GET("user/medical-history")
+    fun getDatamedicalHistory(@Query("page") page: String, @Header("Authorization") authHeader : String) : Single<BaseListLoadMoreResponse<Test>>
 }

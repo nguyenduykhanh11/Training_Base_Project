@@ -70,4 +70,6 @@ class NetworkModule {
             .readTimeout(Define.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .build()
     }
+
+
 }

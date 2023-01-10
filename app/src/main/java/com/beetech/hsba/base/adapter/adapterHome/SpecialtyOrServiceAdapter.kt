@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.beetech.hsba.R
 import com.beetech.hsba.entity.home.SpecialtysOrService
+import com.beetech.hsba.extension.URL_STORAGE
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_specialty_and_service.view.*
 
@@ -21,7 +22,7 @@ class SpecialtyOrServiceAdapter(private val mList: List<SpecialtysOrService>) : 
 
     override fun onBindViewHolder(holder: SpecialtyOrServiceAdapter.ViewHordel, position: Int) {
         Glide.with(holder.itemView)
-            .load("http://hsba-v2.beetechdev.vn:1680/storage/"+mList[position].icon)
+            .load(URL_STORAGE+mList[position].icon)
             .into(holder.itemView.imv_icon)
         holder.itemView.tv_title.text = mList[position].name
         if (position == mList.size -1 ){

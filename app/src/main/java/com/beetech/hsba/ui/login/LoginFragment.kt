@@ -8,7 +8,7 @@ import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.extension.Category
 import com.beetech.hsba.extension.CategoryError
 import com.beetech.hsba.extension.stringVal
-import com.beetech.hsba.ui.home.HomeFragment
+import com.beetech.hsba.ui.homeScreen.HomeScreenFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.login_fragment.*
 
@@ -42,7 +42,7 @@ class LoginFragment : BaseFragment() {
         if (data is Data) {
             Snackbar.make(cl_container, Category.Successfully.CategoryError, Snackbar.LENGTH_SHORT)
                 .show()
-            getVC().replaceFragment(HomeFragment::class.java)
+            getVC().replaceFragment(HomeScreenFragment::class.java)
         }
     }
 
@@ -59,20 +59,6 @@ class LoginFragment : BaseFragment() {
         Snackbar.make(cl_container, throwable!!.error, Snackbar.LENGTH_SHORT).show()
         super.handleValidateError(throwable)
     }
-
-//    private fun catergotyError(error: String): String {
-//        return when (error) {
-//            getString(R.string.error_400) -> {
-//                return getString(R.string.str_login_error_400)
-//            }
-//            getString(R.string.error_422) -> {
-//                return getString(R.string.str_login_error_422)
-//            }
-//            else -> {
-//                getString(R.string.error_receiving_api)
-//            }
-//        }
-//    }
 
     override fun backPressed(): Boolean {
         return false

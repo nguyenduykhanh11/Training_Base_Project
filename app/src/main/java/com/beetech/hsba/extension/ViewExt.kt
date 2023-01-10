@@ -122,3 +122,4 @@ val SharePref.CategotySharePref: String
         SharePref.KeyPref -> context.getString(R.string.dialog_title_key_pref)}
 
 val KEY_BUNDLE = context.getString(R.string.tab_status_tablayout)
+val URL_STORAGE =context.getString(R.string.url_storage)

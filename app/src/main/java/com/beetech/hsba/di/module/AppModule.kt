@@ -2,6 +2,7 @@ package com.beetech.hsba.di.module
 
 import android.app.Application
 import android.content.Context
+import com.beetech.hsba.ui.login.LoginViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,4 +15,11 @@ abstract class AppModule {
     @Binds
     @Singleton
     abstract fun provideContext(application: Application) : Context
+
+    @Binds
+    @Singleton
+    abstract fun SharePrefer(
+        sharePrefe: SharePrefe
+    ): SharePreference
+
 }

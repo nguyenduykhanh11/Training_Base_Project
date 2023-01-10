@@ -35,5 +35,8 @@
     <color name="notification_red">#ED1C24</color>
     <color name="icon_gray">#808080</color>
     <color name="tab_item2_yellow_while">#FFFCDC</color>
+    <color name="bg_test_event_while">#C6FFFFFF</color>
+    <color name="bg_test_fragment">#F2F2F2</color>
+    <color name="bg_gray_tiem_test">#D09A9A9A</color>
 
 </resources>

@@ -92,7 +92,9 @@ class HomeFragment : BaseFragment() {
         vp_home_fragment.adapter = pegerAdapter
         TabLayoutMediator(tl_home, vp_home_fragment){tab, position->
             when(position){
-                0-> tab.text = getString(R.string.lable_specialist)
+                0-> {
+                    tab.text = getString(R.string.lable_specialist)
+                }
                 1-> tab.text = getString(R.string.lable_service)
             }
         }.attach()
@@ -101,6 +103,8 @@ class HomeFragment : BaseFragment() {
     private fun setUpViewClickTab() {
         tl_home.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                tl_home.background = null
+                tl_home.setSelectedTabIndicator(null)
                 if(tab?.position == 1){
                     setUpViewTab(R.drawable.shape_select_item_1_tablayout, R.drawable.shape_bg_unselect_item_1_tablayout)
                 }else{
@@ -108,15 +112,18 @@ class HomeFragment : BaseFragment() {
                 }
             }
             override fun onTabUnselected(tab: TabLayout.Tab?) {
+
             }
             override fun onTabReselected(tab: TabLayout.Tab?) {
+
             }
         })
     }
 
     private fun setUpViewTab(select: Int, unselect: Int) {
-        tl_home.setSelectedTabIndicator(context?.getDrawable(select))
         tl_home.background = ResourcesCompat.getDrawable(requireContext().resources, unselect, null)
+        tl_home.setSelectedTabIndicator(ResourcesCompat.getDrawable(requireContext().resources, select, null))
+
     }
 
     override fun onPause() {

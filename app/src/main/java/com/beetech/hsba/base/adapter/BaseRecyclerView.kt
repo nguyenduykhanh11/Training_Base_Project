@@ -122,7 +122,7 @@ class BaseRecyclerView : RelativeLayout {
         swipeRefresh.setOnRefreshListener(refreshListener)
     }
 
-    fun setOnLoadingMoreListener(loadingMoreListener: OnLoadingMoreListener) {
+    fun setOnLoadingMoreListener(loadingMoreListener: OnLoadingMoreListener?) {
         mAdapter?.setLoadingMoreListener(loadingMoreListener)
     }
 
@@ -134,4 +134,6 @@ class BaseRecyclerView : RelativeLayout {
         mAdapter = adapter
         rcv_data.adapter = adapter
     }
+
+
 }

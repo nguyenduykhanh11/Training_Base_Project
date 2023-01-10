@@ -7,6 +7,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(var repo: Repository) : BaseViewModel() {
-
-
+    fun getTokenLogin(): String{
+        val token = repo.getDataLogin().accessToken
+        if (token != null){
+            return token
+        }
+        return ""
+    }
 }
