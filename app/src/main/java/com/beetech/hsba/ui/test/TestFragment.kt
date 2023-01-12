@@ -4,9 +4,9 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beetech.hsba.R
+import com.beetech.hsba.adapter.adapterTest.TestAdapter
 import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.EndlessLoadingRecyclerViewAdapter
-import com.beetech.hsba.base.adapter.adapterTest.TestAdapter
 import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.Test.Test
 import kotlinx.android.synthetic.main.fragment_test.*
@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_test.*
 class TestFragment : BaseFragment() {
     private lateinit var mAdapter: TestAdapter
     private val viewModel: TestViewModel by activityViewModels()
-    private var index = 1
     override fun backFromAddFragment() {
 
     }
@@ -54,10 +53,7 @@ class TestFragment : BaseFragment() {
                 mAdapter.hideLoadingItem()
                 mAdapter.addModels(result, false)
             }
-        } else {
-            mAdapter.hideLoadingItem()
         }
-
     }
 
     override fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean) {
@@ -88,9 +84,8 @@ class TestFragment : BaseFragment() {
     private fun getDataPage1() {
         test_recycler_view.enableRefresh(false)
         viewModel.apply {
-            getDatamedicalHistory(1.toString(), true)
+            getDatamedicalHistory( true)
         }
-        index = 2
     }
 
     private fun setUpEventLoadMore() {
@@ -99,9 +94,8 @@ class TestFragment : BaseFragment() {
             override fun onLoadMore() {
                 mAdapter.showLoadingItem(false)
                 viewModel.apply {
-                    getDatamedicalHistory(index.toString())
+                    getDatamedicalHistory()
                 }
-                index += 1
             }
         })
     }
@@ -111,7 +105,6 @@ class TestFragment : BaseFragment() {
             data.observe(viewLifecycleOwner) {
                 handleLoadMoreResponse(it)
             }
-            index += 1
         }
     }
 }

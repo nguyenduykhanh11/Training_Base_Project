@@ -1,4 +1,4 @@
-package com.beetech.hsba.base.adapter.adapterHome
+package com.beetech.hsba.adapter.adapterHome
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

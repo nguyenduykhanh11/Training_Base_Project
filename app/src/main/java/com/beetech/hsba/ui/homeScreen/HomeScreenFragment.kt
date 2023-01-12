@@ -3,7 +3,7 @@ package com.beetech.hsba.ui.homeScreen
 import android.util.Log
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
-import com.beetech.hsba.base.adapter.adapterHomeScreen.ViewPegerBottomNavigation
+import com.beetech.hsba.adapter.adapterHomeScreen.ViewPegerBottomNavigation
 import kotlinx.android.synthetic.main.home_screen_fragment.*
 
 class HomeScreenFragment: BaseFragment() {

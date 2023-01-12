@@ -1,4 +1,4 @@
-package com.beetech.hsba.base.adapter.adapterTest
+package com.beetech.hsba.adapter.adapterTest
 
 import android.content.Context
 import android.view.View

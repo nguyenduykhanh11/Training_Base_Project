@@ -10,10 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="175dp"
+        android:background="@color/md_white_1000"
         android:orientation="vertical"
         android:paddingStart="@dimen/margin_18_dp"
         android:paddingTop="15dp"
-        android:background="@color/md_white_1000"
         android:paddingEnd="17dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,6 @@
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/roboto_bold"
                 android:lines="1"
-                android:text="Truyền nhiểm - Viêm gan"
                 android:textColor="@color/md_black_1000"
                 android:textSize="@dimen/textsize_16_sp"
                 app:layout_constraintEnd_toStartOf="@+id/tv_day_time"
@@ -39,7 +38,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_italic"
-                android:text="6 ngày trước"
                 android:textColor="@color/md_black_1000"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,11 +54,10 @@
                 android:id="@+id/tv_name_doctor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="7.73dp"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/roboto_bold"
                 android:lines="1"
-                android:layout_marginTop="7.73dp"
-                android:text="Bsi. Thân Mạnh Hùng"
                 android:textColor="@color/md_black_1000"
                 android:textSize="@dimen/textsize_14_sp"
                 app:layout_constraintEnd_toStartOf="@+id/imv_avatar_doctor"
@@ -73,7 +70,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Tiến sỹ"
                 android:textColor="@color/md_black_1000"
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,12 +77,14 @@
 
             <ImageView
                 android:id="@+id/imv_avatar_doctor"
-                android:layout_width="94.63dp"
+                android:layout_width="100dp"
                 android:layout_height="131.31dp"
                 android:background="@color/md_white_1000"
                 android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="w,1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -98,7 +96,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_mau"
+                    android:drawableStart="@drawable/icon_mau"
                     android:drawablePadding="5.65dp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="@string/lable_text_kqxt_mau"
@@ -111,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_image"
+                    android:drawableStart="@drawable/icon_image"
                     android:drawablePadding="5.65dp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="@string/lable_test_image"
@@ -125,7 +123,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_file"
+                    android:drawableStart="@drawable/icon_file"
                     android:drawablePadding="5.65dp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="@string/lable_test_file"
@@ -137,6 +135,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="50dp"
@@ -148,48 +147,55 @@
             android:layout_width="18dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:paddingEnd="3.7dp"
-            android:paddingStart="3dp"
-            android:src="@drawable/icon_show"
             android:background="@drawable/shape_bg_item_test"
-            android:visibility="visible" />
+            android:paddingStart="3dp"
+            android:paddingEnd="3.7dp"
+            android:src="@drawable/icon_show"
+            android:visibility="visible"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:id="@+id/ll_form_delete_item"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:visibility="gone"
             android:background="@drawable/shape_bg_item_test"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
+
             <ImageView
                 android:id="@+id/imv_back"
                 android:layout_width="14.7dp"
                 android:layout_height="match_parent"
-                android:paddingEnd="3.7dp"
+                android:layout_gravity="center"
                 android:layout_marginStart="3dp"
+                android:paddingEnd="3.7dp"
                 android:src="@drawable/icon_back"
-                android:layout_gravity="center"/>
+                tools:ignore="ContentDescription,RtlSymmetry" />
+
             <LinearLayout
                 android:id="@+id/ll_delete_item"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="2.3dp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="17.56dp"
                     android:layout_height="22dp"
-                    android:src="@drawable/ic_delete"
+                    android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="center"/>
+                    android:src="@drawable/ic_delete"
+                    tools:ignore="ContentDescription" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="3.34dp"
-                    android:text="@string/lable_delete"
-                    android:textSize="16sp"
                     android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/md_white_1000"/>
+                    android:text="@string/lable_delete"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

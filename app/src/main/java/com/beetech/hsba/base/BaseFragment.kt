@@ -93,7 +93,7 @@ abstract class BaseFragment: Fragment() {
     protected open fun handleLoadMoreResponse(response: BaseListLoadMoreResponse<*>) {
         when (response.type) {
             Define.ResponseStatus.LOADING -> showLoading()
-            Define.ResponseStatus.  SUCCESS -> {
+            Define.ResponseStatus.SUCCESS -> {
                 getListResponse(response.data, response.isRefresh, response.isLoadmore)
                 hideLoading()
             }

@@ -3,7 +3,6 @@ package com.beetech.hsba.network
 import com.beetech.hsba.base.entity.BaseListLoadMoreResponse
 import com.beetech.hsba.base.entity.BaseListResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
-import com.beetech.hsba.di.module.SharePreference
 import com.beetech.hsba.entity.Login.Data
 import com.beetech.hsba.entity.LoginRequest
 import com.beetech.hsba.entity.Test.Test
@@ -14,7 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class Repository @Inject constructor(val apiInterface: ApiInterface, val sharePref: SharePreference) {
+class Repository @Inject constructor(val apiInterface: ApiInterface) {
     fun getData(pageIndex:Int): Single<BaseListLoadMoreResponse<User>> {
         return apiInterface.getDataUser("f",pageIndex)
             .subscribeOn(Schedulers.io())
@@ -28,10 +27,6 @@ class Repository @Inject constructor(val apiInterface: ApiInterface, val sharePr
         return apiInterface.login(loginRequest)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-    }
-
-    fun getDataLogin(): Data{
-        return sharePref.checkSharePref()
     }
 
     fun getDataSpecialtys(): Single<BaseListResponse<SpecialtysOrService>> {

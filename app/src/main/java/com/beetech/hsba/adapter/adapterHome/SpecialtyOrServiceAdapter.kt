@@ -1,4 +1,4 @@
-package com.beetech.hsba.base.adapter.adapterHome
+package com.beetech.hsba.adapter.adapterHome
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +14,13 @@ class SpecialtyOrServiceAdapter(private val mList: List<SpecialtysOrService>) : 
 
     inner class ViewHordel(view: View): RecyclerView.ViewHolder(view)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecialtyOrServiceAdapter.ViewHordel {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHordel {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_specialty_and_service, parent, false)
         return ViewHordel(view)
     }
 
-    override fun onBindViewHolder(holder: SpecialtyOrServiceAdapter.ViewHordel, position: Int) {
+    override fun onBindViewHolder(holder: ViewHordel, position: Int) {
         Glide.with(holder.itemView)
             .load(URL_STORAGE+mList[position].icon)
             .into(holder.itemView.imv_icon)

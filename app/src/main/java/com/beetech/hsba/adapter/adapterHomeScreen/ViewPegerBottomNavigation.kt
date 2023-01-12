@@ -1,4 +1,4 @@
-package com.beetech.hsba.base.adapter.adapterHomeScreen
+package com.beetech.hsba.adapter.adapterHomeScreen
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

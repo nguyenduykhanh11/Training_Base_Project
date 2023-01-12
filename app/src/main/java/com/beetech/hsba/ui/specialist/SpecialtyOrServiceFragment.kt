@@ -6,7 +6,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
-import com.beetech.hsba.base.adapter.adapterHome.SpecialtyOrServiceAdapter
+import com.beetech.hsba.adapter.adapterHome.SpecialtyOrServiceAdapter
 import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.home.SpecialtysOrService
 import com.beetech.hsba.extension.KEY_BUNDLE

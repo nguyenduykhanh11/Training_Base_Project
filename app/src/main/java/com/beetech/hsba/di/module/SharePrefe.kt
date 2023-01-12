@@ -13,14 +13,7 @@ import javax.inject.Inject
 class SharePrefe @Inject constructor(): SharePreference{
     override fun checkSharePref(): Data {
         BaseApplication.context.getSharedPreferences(SharePref.MyPref.CategotySharePref, Context.MODE_PRIVATE).let {
-            val data = Gson().fromJson(it?.getString(SharePref.KeyPref.CategotySharePref) ,Data::class.java)
-            if (data != null){
-                return data
-            }else{
-                Log.d("this", Data().toString())
-                return Data()
-            }
+            return Gson().fromJson(it?.getString(SharePref.KeyPref.CategotySharePref) ,Data::class.java)?: Data()
         }
-
     }
 }
