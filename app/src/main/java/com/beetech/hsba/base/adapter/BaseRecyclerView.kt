@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.layout_base_recyclerview.view.*
 
 class BaseRecyclerView : RelativeLayout {
     private var mAdapter: EndlessLoadingRecyclerViewAdapter? = null
+    private var mAdapter2: RecyclerViewAdapter? = null
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_base_recyclerview, this, true)
     }
@@ -132,6 +133,11 @@ class BaseRecyclerView : RelativeLayout {
 
     fun setAdapter(adapter: EndlessLoadingRecyclerViewAdapter?) {
         mAdapter = adapter
+        rcv_data.adapter = adapter
+    }
+
+    fun setAdapter(adapter: RecyclerViewAdapter?) {
+        mAdapter2 = adapter
         rcv_data.adapter = adapter
     }
 

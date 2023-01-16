@@ -1,36 +1,38 @@
 package com.beetech.hsba.adapter.adapterHome
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.beetech.hsba.R
+import com.beetech.hsba.base.adapter.RecyclerViewAdapter
 import com.beetech.hsba.entity.home.SpecialtysOrService
 import com.beetech.hsba.extension.URL_STORAGE
+import com.beetech.hsba.extension.inflate
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_specialty_and_service.view.*
 
-class SpecialtyOrServiceAdapter(private val mList: List<SpecialtysOrService>) : RecyclerView.Adapter<SpecialtyOrServiceAdapter.ViewHordel>() {
-
-    inner class ViewHordel(view: View): RecyclerView.ViewHolder(view)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHordel {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_specialty_and_service, parent, false)
-        return ViewHordel(view)
+class SpecialtyOrServiceAdapter(context: Context) :
+    RecyclerViewAdapter(context, false) {
+    override fun initNormalViewHolder(parent: ViewGroup): RecyclerView.ViewHolder? {
+        return SpecialtyOrServiceViewHordel(parent.inflate(R.layout.item_specialty_and_service))
     }
 
-    override fun onBindViewHolder(holder: ViewHordel, position: Int) {
-        Glide.with(holder.itemView)
-            .load(URL_STORAGE+mList[position].icon)
-            .into(holder.itemView.imv_icon)
-        holder.itemView.tv_title.text = mList[position].name
-        if (position == mList.size -1 ){
-            holder.itemView.imv_line.setImageDrawable(null)
+    class SpecialtyOrServiceViewHordel(inflate: View): NormalViewHolder(inflate) {}
+
+    override fun bindNormalViewHolder(holder: NormalViewHolder, position: Int) {
+        getItem(position, SpecialtysOrService::class.java).let {
+            Glide.with(holder.itemView)
+                .load(URL_STORAGE + it?.icon)
+                .into(holder.itemView.imv_icon)
+            holder.itemView.tv_title.text = it?.name
+            if (position ==  getListSize()- 1) {
+                holder.itemView.imv_line.setImageDrawable(null)
+            }
         }
-    }
 
-    override fun getItemCount(): Int = mList.size
+    }
 
 
 }

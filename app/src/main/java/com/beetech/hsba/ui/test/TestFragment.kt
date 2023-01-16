@@ -1,5 +1,7 @@
 package com.beetech.hsba.ui.test
 
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,7 +11,10 @@ import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.EndlessLoadingRecyclerViewAdapter
 import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.Test.Test
+import com.beetech.hsba.extension.gone
+import com.beetech.hsba.extension.visible
 import kotlinx.android.synthetic.main.fragment_test.*
+import kotlinx.android.synthetic.main.my_custom_view.*
 
 class TestFragment : BaseFragment() {
     private lateinit var mAdapter: TestAdapter
@@ -22,8 +27,14 @@ class TestFragment : BaseFragment() {
         get() = R.layout.fragment_test
 
     override fun initView() {
+        setUpView()
         setUpRecyclerView()
         getDataPage1()
+    }
+
+    private fun setUpView() {
+        my_custom_view.setTitle(getString(R.string.medical_examination_history))
+        imb_add.visible()
     }
 
 
@@ -40,9 +51,9 @@ class TestFragment : BaseFragment() {
     override fun backPressed(): Boolean {
         return true
     }
-
     override fun getListResponse(data: List<*>?, isRefresh: Boolean, canLoadmore: Boolean) {
         super.getListResponse(data, isRefresh, canLoadmore)
+        delayResult()
         mAdapter.enableLoadingMore(canLoadmore)
         if (data?.firstOrNull() is Test) {
             val result = data as List<Test>
@@ -54,6 +65,14 @@ class TestFragment : BaseFragment() {
                 mAdapter.addModels(result, false)
             }
         }
+    }
+
+    private fun delayResult() {
+        val handle = Handler(Looper.myLooper()!!)
+        handle.postDelayed(runnable, 1000)
+    }
+    private val runnable = Runnable{
+        pgb_load_data.gone()
     }
 
     override fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean) {

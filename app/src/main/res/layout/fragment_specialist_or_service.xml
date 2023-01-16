@@ -257,7 +257,7 @@
 <!--            android:textSize="@dimen/textsize_20_sp"-->
 <!--            tools:ignore="UseCompatTextViewDrawableXml" />-->
 <!--    </LinearLayout>-->
-    <androidx.recyclerview.widget.RecyclerView
+    <com.beetech.hsba.base.adapter.BaseRecyclerView
         android:id="@+id/rv_specialty_or_service"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

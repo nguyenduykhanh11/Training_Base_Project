@@ -5,12 +5,13 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beetech.hsba.R
-import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.adapter.adapterHome.SpecialtyOrServiceAdapter
+import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.home.SpecialtysOrService
 import com.beetech.hsba.extension.KEY_BUNDLE
 import kotlinx.android.synthetic.main.fragment_specialist_or_service.*
+import kotlinx.android.synthetic.main.fragment_test.*
 
 class SpecialtyOrServiceFragment() : BaseFragment() {
     private val viewModel: SpecialtyViewModel by activityViewModels()
@@ -47,7 +48,6 @@ class SpecialtyOrServiceFragment() : BaseFragment() {
     }
 
     override fun <U> getListResponse(data: List<U>?) {
-        Log.d("this", data.toString())
         setUpViewRecyclerView(data)
         super.getListResponse(data)
     }
@@ -63,10 +63,17 @@ class SpecialtyOrServiceFragment() : BaseFragment() {
     }
 
     private fun <U> setUpViewRecyclerView(data: List<U>?) {
-        mAdapter = SpecialtyOrServiceAdapter(data as List<SpecialtysOrService>)
+        mAdapter = SpecialtyOrServiceAdapter(context!!)
         rv_specialty_or_service.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            this.adapter = mAdapter
+            setAdapter(mAdapter)
+            setListLayoutManager(LinearLayoutManager.VERTICAL)
+        }
+        if (data?.firstOrNull() is SpecialtysOrService) {
+            val result = data as List<SpecialtysOrService>
+            mAdapter.addModels(result, false)
+        }
+        rv_specialty_or_service.setOnRefreshListener {
+            rv_specialty_or_service.enableRefresh(false)
         }
     }
 

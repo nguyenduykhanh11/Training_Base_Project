@@ -9,7 +9,7 @@
     <string name="btn_login_with_facebook">Đăng nhập với Facebook</string>
     <string name="btn_login_with_Apple">Đăng nhập với Apple</string>
     <string name="btn_login_with_google">Đăng nhập với Google</string>
-    <string name="lable_account">demo1@example.com</string>
+    <string name="lable_account">hoan.pc@example.com</string>
     <string name="btn_login">ĐĂNG NHẬP</string>
     <string name="lable_password">Abcd!234</string>
     <string name="str_login_validate_user_name">Bạn chưa nhập tài khoản</string>
@@ -70,4 +70,23 @@
     <string name="text_TS">TS</string>
     <string name="settext_tien_si">Tiến sỹ</string>
     <string name="settext_thac_si">Thạc sỹ</string>
+    <string name="lable_cm">cm</string>
+    <string name="lable_kg">kg</string>
+    <string name="btn_update">Cập nhật</string>
+    <string name="hint_diagnostic">Chuẩn đoán</string>
+    <string name="hint_blood">Nhóm máu</string>
+    <string name="weight">Cân nặng</string>
+    <string name="hint_height">Chiều cao</string>
+    <string name="lable_address">Tầng 4, Toà nhà H10, Số 2 ngõ 475, Thanh Xuân, Hà Nội</string>
+    <string name="lable_male">Nam</string>
+    <string name="lable_birthday">24 / 04 / 1986</string>
+    <string name="lable_female">Nữ</string>
+    <string name="lable_other">Khác</string>
+    <string name="title_health">Thông tin sức khoẻ</string>
+    <string name="title_individual">Thông tin cá nhân</string>
+    <string name="title_create_profile">Tạo Hồ sơ</string>
+    <string name="lable_phone">0979 017 899</string>
+    <string name="lable_add_new">Tạo mới</string>
+    <string name="medical_examination_history">Lịch sử khám bệnh</string>
+    <string name="lable_day">30 / 11 / 2001</string>
 </resources>

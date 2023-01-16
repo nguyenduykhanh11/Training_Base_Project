@@ -276,6 +276,10 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
         return classType.cast(listWrapperModels!![position].model)
     }
 
+    fun getListSize(): Int {
+        return listWrapperModels!!.size
+    }
+
     override fun getItemViewType(position: Int): Int {
         return listWrapperModels!![position].viewType
     }
@@ -357,6 +361,7 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
             modelWrapper.isSelected = false
         }
     }
+
 
     override fun getItemCount(): Int {
         return listWrapperModels!!.size
