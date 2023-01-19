@@ -2,25 +2,27 @@ package com.beetech.hsba.ui.home
 
 import android.os.Handler
 import android.os.Looper
-import androidx.core.content.res.ResourcesCompat
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.beetech.hsba.R
-import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.adapter.adapterHome.HomeAdvertisementAdapter
-import com.beetech.hsba.adapter.adapterHome.ViewPegerAdapter
+import com.beetech.hsba.adapter.adapterHome.HomeSpeciOrServiAdapter
+import com.beetech.hsba.base.BaseFragment
+import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.home.Advertisement
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
+import com.beetech.hsba.entity.home.SpecialtysOrService
+import com.beetech.hsba.extension.gone
+import com.beetech.hsba.extension.visible
 import kotlinx.android.synthetic.main.home_fragment.*
-
 //@AndroidEntryPoint
 class HomeFragment : BaseFragment() {
-
-    private lateinit var viewModel: HomeViewModel
-    private lateinit var pegerAdapter: ViewPegerAdapter
+    private val viewModel: HomeViewModel by activityViewModels()
+    private lateinit var mAdapter: HomeSpeciOrServiAdapter
     private lateinit var handle: Handler
     private lateinit var mHomeAdvertisementAdapter: HomeAdvertisementAdapter
     private val list = mutableListOf<Advertisement>()
@@ -33,33 +35,69 @@ class HomeFragment : BaseFragment() {
 
     override fun initView() {
         handle = Handler(Looper.myLooper()!!)
-        setUpTabLayout()
-        setUpViewClickTab()
+        setUpViewRcv()
+        setUpViewPegerAdver()
     }
 
     override fun initData() {
         addDataImage()
+        getDataSpecialty()
     }
 
     override fun initListener() {
-        handleViewPegerAdver()
         setUpActivityViewPeger()
+        setEventSpeciOrService()
     }
 
     private fun setUpActivityViewPeger() {
         vp_advertisenment.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                handle.removeCallbacks(runnable)
-                handle.postDelayed(runnable, 5000)
+//                handle.removeCallbacks(runnable)
+//                handle.postDelayed(runnable, 5000)
             }
         })
     }
+    private fun setUpViewRcv() {
+        mAdapter = HomeSpeciOrServiAdapter()
+        rcv_specialty_or_service.run {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = mAdapter
+        }
+    }
 
-    private fun handleViewPegerAdver() {
+    private fun setEventSpeciOrService() {
+        cl_specialty.setOnClickListener{
+            getDataSpecialty()
+        }
+        cl_service.setOnClickListener {
+            viewModel.apply {
+                getDataService()
+                dataService.observe(viewLifecycleOwner) {
+                    handleListResponse(it)
+                }
+            }
+            imv_specialty.visible()
+            imv_service.gone()
+            rcv_specialty_or_service.setBackgroundResource(R.drawable.shape_boder_radius_tab2_viewpeger)
+        }
+    }
+
+    private fun getDataSpecialty() {
+        viewModel.apply {
+            getDataSpecialtys()
+            dataSpecialty.observe(viewLifecycleOwner) {
+                handleListResponse(it)
+            }
+        }
+        imv_specialty.gone()
+        imv_service.visible()
+        rcv_specialty_or_service.setBackgroundResource(R.drawable.shape_boder_radius_tab1_viewpeger)
+    }
+
+    private fun setUpViewPegerAdver() {
         mHomeAdvertisementAdapter = HomeAdvertisementAdapter(list)
         vp_advertisenment.adapter = mHomeAdvertisementAdapter
-//        ci_adversements_home.setViewPager(vp_advertisenment)
         worm_dots_indicator.attachTo(vp_advertisenment)
         vp_advertisenment.clipChildren = false
         vp_advertisenment.clipToPadding = false
@@ -87,47 +125,27 @@ class HomeFragment : BaseFragment() {
         vp_advertisenment.currentItem = vp_advertisenment.currentItem +1
     }
 
-    private fun setUpTabLayout() {
-        pegerAdapter = ViewPegerAdapter(fragmentManager = childFragmentManager, lifecycle)
-        vp_home_fragment.adapter = pegerAdapter
-        TabLayoutMediator(tl_home, vp_home_fragment){tab, position->
-            when(position){
-                0-> {
-                    tab.text = getString(R.string.lable_specialist)
-                }
-                1-> tab.text = getString(R.string.lable_service)
-            }
-        }.attach()
-    }
-
-    private fun setUpViewClickTab() {
-        tl_home.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                tl_home.background = null
-                tl_home.setSelectedTabIndicator(null)
-                if(tab?.position == 1){
-                    setUpViewTab(R.drawable.shape_select_item_1_tablayout, R.drawable.shape_bg_unselect_item_1_tablayout)
-                }else{
-                    setUpViewTab(R.drawable.shape_select_item_0_tablayout, R.drawable.shape_bg_unselect_item_0_tablayout)
-                }
-            }
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-            }
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-        })
-    }
-
-    private fun setUpViewTab(select: Int, unselect: Int) {
-        tl_home.background = ResourcesCompat.getDrawable(requireContext().resources, unselect, null)
-        tl_home.setSelectedTabIndicator(ResourcesCompat.getDrawable(requireContext().resources, select, null))
-
-    }
-
     override fun onPause() {
-        handle.removeCallbacks(runnable)
+//        handle.removeCallbacks(runnable)
         super.onPause()
+    }
+
+    override fun <U> getListResponse(data: List<U>?) {
+        setUpDataRecyclerView(data)
+        super.getListResponse(data)
+    }
+
+    override fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean) {
+        Toast.makeText(context, throwable?.message, Toast.LENGTH_SHORT).show()
+        super.handleNetworkError(throwable, isShowDialog)
+    }
+
+    override fun handleValidateError(throwable: BaseError?) {
+        Toast.makeText(context, throwable?.message, Toast.LENGTH_SHORT).show()
+        super.handleValidateError(throwable)
+    }
+
+    private fun <U> setUpDataRecyclerView(data: List<U>?) {
+        mAdapter.setData(data as List<SpecialtysOrService>)
     }
 }

@@ -3,11 +3,13 @@ package com.beetech.hsba.ui.brief
 import android.text.Editable
 import android.text.TextWatcher
 import com.beetech.hsba.R
+import com.beetech.hsba.adapter.adapterBrief.SelectsOptionBloodGroupAdapter
 import com.beetech.hsba.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_brief.*
 
 
 class BriefFragment : BaseFragment(){
+    private lateinit var mAdapter: SelectsOptionBloodGroupAdapter
     override fun backFromAddFragment() {
 
     }
@@ -19,6 +21,10 @@ class BriefFragment : BaseFragment(){
         val data = getString(R.string.lable_phone)
         masked_edt_phone.setMaskedText(data.replace(" ",""))
         inputTextFormatDate()
+    }
+
+    override fun initData() {
+
     }
 
     private fun inputTextFormatDate() {
@@ -49,10 +55,6 @@ class BriefFragment : BaseFragment(){
                 }
             }
         })
-    }
-
-    override fun initData() {
-
     }
 
     override fun initListener() {

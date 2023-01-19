@@ -79,7 +79,7 @@
                 android:id="@+id/imv_avatar_doctor"
                 android:layout_width="100dp"
                 android:layout_height="131.31dp"
-                android:background="@color/md_white_1000"
+                android:backgroundTint="@color/md_white_1000"
                 android:scaleType="centerCrop"
                 android:src="@drawable/image_doctor"
                 app:layout_constraintDimensionRatio="w,1:1"

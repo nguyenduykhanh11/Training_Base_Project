@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_item_schedule_health"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/margin_24_dp"
+    android:paddingTop="@dimen/margin_15_dp"
+    android:paddingEnd="@dimen/margin_15_dp"
+    android:paddingBottom="16dp"
+    android:id="@+id/ll_container"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:orientation="vertical"
+        android:paddingEnd="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_sick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_sick"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/md_black_1000"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_16_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/tv_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_doctor"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/md_black_1000"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_16_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/tv_format"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_format"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/md_black_1000"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_16_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_time"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/md_black_1000"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/md_black_1000"
+            android:textSize="@dimen/textsize_16_sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/margin_15_dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/imv_oval"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/shape_bg_bottom_add_test"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/icon_show_heath"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

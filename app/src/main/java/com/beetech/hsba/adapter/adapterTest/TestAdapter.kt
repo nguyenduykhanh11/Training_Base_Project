@@ -33,14 +33,20 @@ class TestAdapter(context: Context): EndlessLoadingRecyclerViewAdapter(context =
         val item = getItem(position, Test::class.java)
         item.let {
             holder.itemView.apply {
+                imv_show.visible()
+                ll_form_delete_item.gone()
                 val name = it?.doctor_name
                 tv_day_time.text = it?.date_medical_histories
                 tv_title_test.text = it?.service_specialty_name
-                Glide.with(this)
-                    .load(URL_STORAGE +it?.avatar)
-                    .into(imv_avatar_doctor)
-                imv_show.visible()
-                ll_form_delete_item.gone()
+
+                if(it?.avatar != null){
+                    Glide.with(this)
+                        .load(URL_STORAGE +it?.avatar)
+                        .into(imv_avatar_doctor)
+                }else{
+                    imv_avatar_doctor.setImageResource(R.drawable.image_doctor)
+                }
+
                 if(name!!.contains(ts!!)){
                     tv_name_doctor.text = name.substring(4)
                     tv_degree.text = context.getString(R.string.settext_tien_si)

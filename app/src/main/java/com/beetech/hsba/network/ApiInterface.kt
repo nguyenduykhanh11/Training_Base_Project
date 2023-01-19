@@ -1,6 +1,7 @@
 package com.beetech.hsba.network
 
 
+import com.beetech.hsba.entity.patient.ScheduleHealthCheck
 import com.beetech.hsba.base.entity.BaseListLoadMoreResponse
 import com.beetech.hsba.base.entity.BaseListResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
@@ -36,4 +37,9 @@ interface ApiInterface {
 //    Get Data Test
     @GET("user/medical-history")
     fun getDatamedicalHistory(@Query("page") page: String, @Header("Authorization") authHeader : String) : Single<BaseListLoadMoreResponse<Test>>
+
+    //    Get Data Test
+    @GET("user/schedule-health-check")
+    fun getDataScheduleHealthCheck(@Query("page") page: String, @Header("Authorization") authHeader : String) : Single<BaseListLoadMoreResponse<ScheduleHealthCheck>>
+
 }

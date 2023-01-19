@@ -89,4 +89,13 @@
     <string name="lable_add_new">Tạo mới</string>
     <string name="medical_examination_history">Lịch sử khám bệnh</string>
     <string name="lable_day">30 / 11 / 2001</string>
+    <string name="lable_list_patient">Danh sách lịch khám</string>
+    <string name="lable_blood_group">Nhóm máu</string>
+    <string-array name="Spinner">
+        <item>Việt Nam</item>
+        <item>Ấn Độ</item>
+        <item>Hoa Kỳ</item>
+        <item>Indonesia</item>
+        <item>Trung Quốc</item>
+    </string-array>
 </resources>

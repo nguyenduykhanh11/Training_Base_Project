@@ -1,5 +1,6 @@
 package com.beetech.hsba.network
 
+import com.beetech.hsba.entity.patient.ScheduleHealthCheck
 import com.beetech.hsba.base.entity.BaseListLoadMoreResponse
 import com.beetech.hsba.base.entity.BaseListResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
@@ -43,6 +44,12 @@ class Repository @Inject constructor(val apiInterface: ApiInterface) {
 
     fun getDatamedicalHistory(page: String, token: String): Single<BaseListLoadMoreResponse<Test>> {
         return apiInterface.getDatamedicalHistory( page, "Bearer $token")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun getScheduleHealthCheck(page: String, token: String): Single<BaseListLoadMoreResponse<ScheduleHealthCheck>> {
+        return apiInterface.getDataScheduleHealthCheck( page, "Bearer $token")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

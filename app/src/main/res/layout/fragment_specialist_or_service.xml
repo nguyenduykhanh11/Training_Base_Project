@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="561dp"
+    android:layout_height="match_parent"
     android:paddingStart="26dp"
     android:paddingEnd="26dp"
     android:paddingTop="10dp"
@@ -257,8 +257,12 @@
 <!--            android:textSize="@dimen/textsize_20_sp"-->
 <!--            tools:ignore="UseCompatTextViewDrawableXml" />-->
 <!--    </LinearLayout>-->
-    <com.beetech.hsba.base.adapter.BaseRecyclerView
+<!--    <com.beetech.hsba.base.adapter.BaseRecyclerView-->
+<!--        android:id="@+id/rv_specialty_or_service"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_specialty_or_service"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>
