@@ -16,7 +16,7 @@ import com.beetech.hsba.extension.visible
 import kotlinx.android.synthetic.main.fragment_test.*
 import kotlinx.android.synthetic.main.my_custom_view.*
 
-class TestFragment : BaseFragment() {
+class   TestFragment : BaseFragment() {
     private lateinit var mAdapter: TestAdapter
     private val viewModel: TestViewModel by activityViewModels()
     override fun backFromAddFragment() {
@@ -29,7 +29,6 @@ class TestFragment : BaseFragment() {
     override fun initView() {
         setUpView()
         setUpRecyclerView()
-        getDataPage1()
     }
 
     private fun setUpView() {
@@ -40,12 +39,16 @@ class TestFragment : BaseFragment() {
 
     override fun initData() {
         getDataViewModel()
-
+        getDataPage1()
     }
 
     override fun initListener() {
         setUpEventRefresh()
         setUpEventLoadMore()
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     override fun backPressed(): Boolean {

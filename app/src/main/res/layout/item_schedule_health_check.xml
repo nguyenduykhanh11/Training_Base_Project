@@ -21,54 +21,88 @@
         android:paddingEnd="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_sick"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/icon_sick"
-            android:drawablePadding="8dp"
-            android:drawableTint="@color/md_black_1000"
-            android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/md_black_1000"
-            android:textSize="@dimen/textsize_16_sp"
-            tools:ignore="UseCompatTextViewDrawableXml" />
-
-        <TextView
-            android:id="@+id/tv_doctor"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imv_sick"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_sick"/>
+            <TextView
+                android:id="@+id/tv_sick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/md_black_1000"
+                android:textSize="@dimen/textsize_16_sp"
+                tools:ignore="RtlSymmetry,UseCompatTextViewDrawableXml" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/icon_doctor"
-            android:drawablePadding="8dp"
-            android:drawableTint="@color/md_black_1000"
-            android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/md_black_1000"
-            android:textSize="@dimen/textsize_16_sp"
-            tools:ignore="UseCompatTextViewDrawableXml" />
-
-        <TextView
-            android:id="@+id/tv_format"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imv_doctor"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_doctor"/>
+            <TextView
+                android:id="@+id/tv_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/md_black_1000"
+                android:textSize="@dimen/textsize_16_sp"
+                tools:ignore="RtlSymmetry,UseCompatTextViewDrawableXml" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/icon_format"
-            android:drawablePadding="8dp"
-            android:drawableTint="@color/md_black_1000"
-            android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/md_black_1000"
-            android:textSize="@dimen/textsize_16_sp"
-            tools:ignore="UseCompatTextViewDrawableXml" />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imv_format"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_format"/>
+            <TextView
+                android:id="@+id/tv_format"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/md_black_1000"
+                android:textSize="@dimen/textsize_16_sp"
+                tools:ignore="RtlSymmetry,UseCompatTextViewDrawableXml" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_time"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/icon_time"
-            android:drawablePadding="8dp"
-            android:drawableTint="@color/md_black_1000"
-            android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/md_black_1000"
-            android:textSize="@dimen/textsize_16_sp"
-            tools:ignore="UseCompatTextViewDrawableXml" />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imv_time"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_time"/>
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/md_black_1000"
+                android:textSize="@dimen/textsize_16_sp"
+                tools:ignore="RtlSymmetry,UseCompatTextViewDrawableXml" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

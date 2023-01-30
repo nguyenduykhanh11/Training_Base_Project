@@ -91,6 +91,8 @@
     <string name="lable_day">30 / 11 / 2001</string>
     <string name="lable_list_patient">Danh sách lịch khám</string>
     <string name="lable_blood_group">Nhóm máu</string>
+    <string name="lable_offline">Trực tiếp</string>
+    <string name="lable_online">Trực tuyến</string>
     <string-array name="Spinner">
         <item>Việt Nam</item>
         <item>Ấn Độ</item>

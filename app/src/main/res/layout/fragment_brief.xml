@@ -131,25 +131,22 @@
                     tools:ignore="ContentDescription,UseAppTint" />
 
 
-                <EditText
-                    android:id="@+id/edt_birthday"
+                <TextView
+                    android:id="@+id/tv_birthday"
                     android:layout_width="@dimen/width_0_dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="16.18dp"
                     android:layout_toEndOf="@+id/imv_birthday"
-                    android:background="@null"
                     android:fontFamily="@font/roboto_regular"
-                    android:importantForAutofill="no"
-                    android:inputType="date"
                     android:maxLength="15"
                     android:maxLines="1"
                     android:paddingStart="2.38dp"
                     android:text="@string/lable_day"
                     android:textColor="@color/text_black1"
                     android:textSize="@dimen/textsize_16_sp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="LabelFor,RtlSymmetry,TextFields" />
+                    android:gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -388,12 +385,15 @@
                     android:src="@drawable/img_weight"
                     android:tint="@color/bg_register_yellow_center"
                     tools:ignore="ContentDescription,UseAppTint" />
+
                 <EditText
                     android:id="@+id/edt_weight"
                     android:layout_width="@dimen/width_0_dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="@dimen/context_padding_20_dp"
                     android:background="@null"
+                    android:layout_toStartOf="@+id/tv_kg"
+                    android:layout_toEndOf="@+id/imv_weight"
                     android:fontFamily="@font/roboto_regular"
                     android:hint="@string/weight"
                     android:importantForAutofill="no"

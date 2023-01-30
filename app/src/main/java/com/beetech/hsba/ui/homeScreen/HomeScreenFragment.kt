@@ -35,23 +35,24 @@ class HomeScreenFragment: BaseFragment() {
         bnv_home.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> {
-                    vp_with_bottom_navigation.currentItem = 0
+                    vp_with_bottom_navigation.setCurrentItem(0, false)
                     true
                 }
                 R.id.menu_patient -> {
-                    vp_with_bottom_navigation.currentItem = 1
+                    vp_with_bottom_navigation.setCurrentItem(1, false)
                     true
                 }
                 R.id.menu_test -> {
-                    vp_with_bottom_navigation.currentItem = 2
+                    vp_with_bottom_navigation.setCurrentItem(2, false)
                     true
                 }
                 R.id.menu_brief -> {
-                    vp_with_bottom_navigation.currentItem = 3
+
+                    vp_with_bottom_navigation.setCurrentItem(3, false)
                     true
                 }
                 R.id.menu_account -> {
-                    vp_with_bottom_navigation.currentItem = 4
+                    vp_with_bottom_navigation.setCurrentItem(4, false)
                     true
                 }
                 else -> false

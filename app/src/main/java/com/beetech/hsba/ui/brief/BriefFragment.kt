@@ -1,11 +1,14 @@
 package com.beetech.hsba.ui.brief
 
-import android.text.Editable
-import android.text.TextWatcher
+import android.app.DatePickerDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import com.beetech.hsba.R
 import com.beetech.hsba.adapter.adapterBrief.SelectsOptionBloodGroupAdapter
 import com.beetech.hsba.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_brief.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class BriefFragment : BaseFragment(){
@@ -26,36 +29,31 @@ class BriefFragment : BaseFragment(){
     override fun initData() {
 
     }
+    fun formatTime(date: Date, format: String): String {
+        val simpleDateFormat = SimpleDateFormat(format, Locale.getDefault())
+        return simpleDateFormat.format(date)
+    }
 
     private fun inputTextFormatDate() {
-        edt_birthday.addTextChangedListener(object :TextWatcher{
-            var sb : StringBuilder = StringBuilder("")
-            var _ignore = false
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-            override fun afterTextChanged(p0: Editable?) {
-            }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(_ignore){
-                    _ignore = false
-                    return
-                }
-                sb.clear()
-                sb.append(if(p0!!.length > 14) p0.subSequence(0,14) else p0)
-                if(sb.lastIndex == 2) {
-                    if (sb[2].toString() != " ") sb.insert(2, " / ")
-                }
-                else if(sb.lastIndex == 7){
-                    if(sb[7].toString() != " ") sb.insert(7," / ")
-                }
-                _ignore = true
-                edt_birthday.apply {
-                    setText(sb.toString())
-                    setSelection(sb.length)
-                }
-            }
-        })
+        ll_time.setOnClickListener {
+            val newCalendar: Calendar = Calendar.getInstance()
+            newCalendar.time = Date()
+            val startTime = DatePickerDialog(
+                context!!, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                { _, year, monthOfYear, dayOfMonth ->
+                    val newDate: Calendar = Calendar.getInstance()
+                    newDate.set(year, monthOfYear, dayOfMonth)
+                    tv_birthday.text = formatTime(newDate.time, FORMAT_TIME)
+                },
+                newCalendar.get(Calendar.YEAR),
+                newCalendar.get(Calendar.MONTH),
+                newCalendar.get(Calendar.DAY_OF_MONTH)
+            )
+            startTime.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            startTime.show()
+        }
     }
+
 
     override fun initListener() {
 
@@ -68,6 +66,10 @@ class BriefFragment : BaseFragment(){
     override fun onResume() {
         edt_user_name.requestFocus()
         super.onResume()
+    }
+
+    companion object{
+        const val FORMAT_TIME = "dd / MM / yyyy"
     }
 
 }

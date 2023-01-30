@@ -129,7 +129,7 @@ class ViewController(
         fragmentTransaction.commitAllowingStateLoss()
     }
 
-    fun removeAllFragmentExceptFirst(data: Bundle?): Boolean {
+    fun removeAllFragmentExceptFirst(data: Bundle? = null): Boolean {
         return if (listFragment.size >= 2) {
             val fragmentTransaction = fragmentManager.beginTransaction()
             for (i in listFragment.size - 1 downTo 1) {

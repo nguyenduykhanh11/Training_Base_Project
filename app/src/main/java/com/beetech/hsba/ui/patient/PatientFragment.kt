@@ -2,22 +2,18 @@ package com.beetech.hsba.ui.patient
 
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beetech.hsba.R
 import com.beetech.hsba.adapter.adapterScheduleHealthCheck.ScheduleHealthCheckAdapter
-import com.beetech.hsba.adapter.adapterTest.TestAdapter
 import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.EndlessLoadingRecyclerViewAdapter
 import com.beetech.hsba.base.entity.BaseError
-import com.beetech.hsba.entity.Test.Test
 import com.beetech.hsba.entity.patient.ScheduleHealthCheck
 import com.beetech.hsba.extension.gone
 import com.beetech.hsba.extension.visible
 import kotlinx.android.synthetic.main.fragment_patient.*
-import kotlinx.android.synthetic.main.fragment_test.*
 import kotlinx.android.synthetic.main.fragment_test.my_custom_view
 import kotlinx.android.synthetic.main.my_custom_view.*
 
@@ -49,16 +45,6 @@ class PatientFragment : BaseFragment(){
 
     override fun backPressed(): Boolean {
         return false
-    }
-
-    override fun onResume(){
-        Log.d("test", "onResume")
-        super.onResume()
-    }
-
-    override fun onPause() {
-        Log.d("test", "onPause")
-        super.onPause()
     }
 
     private fun setUpView() {

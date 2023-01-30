@@ -9,9 +9,11 @@ import com.beetech.hsba.R
 import com.beetech.hsba.base.adapter.EndlessLoadingRecyclerViewAdapter
 import com.beetech.hsba.base.adapter.RecyclerViewAdapter
 import com.beetech.hsba.entity.patient.ScheduleHealthCheck
+import com.beetech.hsba.extension.gone
 import com.beetech.hsba.extension.inflate
 import com.beetech.hsba.extension.visible
 import kotlinx.android.synthetic.main.item_schedule_health_check.view.*
+import java.text.MessageFormat
 
 
 class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAdapter(context = context, false) {
@@ -22,27 +24,45 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
 
     override fun bindNormalViewHolder(holder: NormalViewHolder, position: Int) {
         setUpData(holder, position)
-
     }
 
+    private fun oldTimeItem(holder: NormalViewHolder) {
+        with(holder.itemView){
+            ll_container.background = context!!.getDrawable(R.drawable.shape_bg_item_schedule_health)
 
-    private fun selectItem(holder: NormalViewHolder) {
+            imv_sick.setImageDrawable(context.getDrawable(R.drawable.icon_sick_normal))
+            tv_sick.typeface = null
+
+            imv_doctor.setImageDrawable(context.getDrawable(R.drawable.icon_doctor_normal))
+            tv_doctor.typeface = null
+
+            imv_format.setImageDrawable(context.getDrawable(R.drawable.icon_format_normal))
+            tv_format.typeface = null
+
+            imv_time.setImageDrawable(context.getDrawable(R.drawable.icon_time_normal))
+            tv_time.apply {
+                typeface = null
+                setTextColor(context.getColor(R.color.md_black_1000))
+            }
+            imv_oval.gone()
+        }
+    }
+
+    private fun nextTimeItem(holder: NormalViewHolder) {
         with(holder.itemView){
             ll_container.setBackgroundColor(context!!.getColor(R.color.md_white_1000))
-            tv_sick.apply {
-                compoundDrawableTintMode = null
-                typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
-            }
-            tv_doctor.apply {
-                compoundDrawableTintMode = null
-                typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
-            }
-            tv_format.apply {
-                compoundDrawableTintMode = null
-                typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
-            }
+
+            imv_sick.setImageDrawable(context.getDrawable(R.drawable.icon_sick))
+            tv_sick.typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
+
+            imv_doctor.setImageDrawable(context.getDrawable(R.drawable.icon_doctor))
+            tv_doctor.typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
+
+            imv_format.setImageDrawable(context.getDrawable(R.drawable.icon_format))
+            tv_format.typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
+
+            imv_time.setImageDrawable(context.getDrawable(R.drawable.icon_time))
             tv_time.apply {
-                compoundDrawableTintMode = null
                 typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
                 setTextColor(context.getColor(R.color.text_color_daytime_red))
             }
@@ -50,18 +70,31 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
         }
     }
 
-
-
     private fun setUpData(holder: RecyclerViewAdapter.NormalViewHolder, position: Int) {
         val item = getItem(position, ScheduleHealthCheck::class.java)
         item.let {
             holder.itemView.apply {
                 tv_sick.text = it?.service_specialty_name
                 tv_doctor.text = it?.doctor_name
-                tv_format.text = it?.medical_examination_form.toString()
                 tv_time.text = it?.format_date
+                if(it?.medical_examination_form == OFFLINE){
+                    tv_format.text = context.getString(R.string.lable_offline)
+                }else{
+                    tv_format.text = context.getString(R.string.lable_online)
+                }
+
+                if(it!!.time_status == OLD_TIME){
+                    oldTimeItem(holder)
+                }else{
+                    nextTimeItem(holder)
+                }
             }
         }
+    }
+
+    companion object{
+        const val OFFLINE = 1
+        const val OLD_TIME = 0
     }
 
 }

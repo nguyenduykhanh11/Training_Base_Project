@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.ui.account.AccountFragment
 import com.beetech.hsba.ui.brief.BriefFragment
 import com.beetech.hsba.ui.home.HomeFragment
