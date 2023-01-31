@@ -51,6 +51,7 @@ class BriefFragment : BaseFragment(){
             )
             startTime.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             startTime.show()
+//            hintKeyBoard()
         }
     }
 
@@ -64,7 +65,7 @@ class BriefFragment : BaseFragment(){
     }
 
     override fun onResume() {
-        edt_user_name.requestFocus()
+//        edt_user_name.requestFocus()
         super.onResume()
     }
 

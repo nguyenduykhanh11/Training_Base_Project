@@ -111,7 +111,7 @@
                     android:textSize="@dimen/textsize_16_sp"
                     tools:ignore="LabelFor,RtlSymmetry">
 
-                    <requestFocus />
+<!--                    <requestFocus />-->
                 </EditText>
             </RelativeLayout>
 

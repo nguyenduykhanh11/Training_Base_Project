@@ -1,10 +1,12 @@
 package com.beetech.hsba.base
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.beetech.hsba.base.custom.HSBALoadingDialog
@@ -51,6 +53,11 @@ abstract class BaseFragment: Fragment() {
         }
 
         return viewController!!
+    }
+
+    fun hintKeyBoard(){
+        val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
     protected open fun handleListResponse(response: BaseListResponse<*>) {

@@ -100,6 +100,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:inputType="textPassword"
                     android:lines="1"
+                    android:imeOptions="actionDone"
                     android:maxLength="25"
                     android:paddingStart="11.9dp"
                     android:text="@string/lable_password"

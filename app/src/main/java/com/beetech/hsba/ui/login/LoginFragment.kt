@@ -33,6 +33,7 @@ class LoginFragment : BaseFragment() {
 
     override fun initListener() {
         btn_login?.setOnClickListener {
+            hintKeyBoard()
             viewModel.login(edt_user_name!!.stringVal, edt_password!!.stringVal)
         }
     }
