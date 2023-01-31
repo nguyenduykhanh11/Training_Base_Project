@@ -42,5 +42,11 @@
     <color name="boder_brief_gray">#808080</color>
     <color name="unselec_radio_bottom">#4CAFBF</color>
     <color name="text_color_daytime_red">#E20404</color>
+    <color name="color_start_header_account">#FFE59B</color>
+    <color name="color_center_header_account">#FFBB00</color>
+    <color name="color_end_header_account">#FFCC40</color>
+    <color name="bg_color_fragment_medda">#F2F2F2</color>
+
+    <color name="text_gray">#707070</color>
 
 </resources>

@@ -93,6 +93,12 @@
     <string name="lable_blood_group">Nhóm máu</string>
     <string name="lable_offline">Trực tiếp</string>
     <string name="lable_online">Trực tuyến</string>
+    <string name="lable_title_account">Tài khoản</string>
+    <string name="lable_create_account">Thiết lập tài khoản</string>
+    <string name="lable_history_account">Lịch sử hoạt đông</string>
+    <string name="label_create_app">Thiết lập ứng dụng</string>
+    <string name="label_logout">Đăng xuất</string>
+    <string name="label_canceled">Đã huỷ</string>
     <string-array name="Spinner">
         <item>Việt Nam</item>
         <item>Ấn Độ</item>

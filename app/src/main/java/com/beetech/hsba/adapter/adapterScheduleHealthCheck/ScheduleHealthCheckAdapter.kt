@@ -13,7 +13,6 @@ import com.beetech.hsba.extension.gone
 import com.beetech.hsba.extension.inflate
 import com.beetech.hsba.extension.visible
 import kotlinx.android.synthetic.main.item_schedule_health_check.view.*
-import java.text.MessageFormat
 
 
 class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAdapter(context = context, false) {
@@ -24,6 +23,37 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
 
     override fun bindNormalViewHolder(holder: NormalViewHolder, position: Int) {
         setUpData(holder, position)
+    }
+
+    private fun canceledItem(holder: NormalViewHolder){
+        with(holder.itemView){
+            ll_container.background = context!!.getDrawable(R.drawable.shape_bg_item_schedule_health)
+
+            imv_sick.setImageDrawable(context.getDrawable(R.drawable.ic_sick_gray))
+            tv_sick.apply {
+                setTextColor(context.getColor(R.color.text_gray))
+                typeface = null
+            }
+
+            imv_doctor.setImageDrawable(context.getDrawable(R.drawable.ic_doctor_gray))
+            tv_doctor.apply {
+                setTextColor(context.getColor(R.color.text_gray))
+                typeface = null
+            }
+            imv_format.setImageDrawable(context.getDrawable(R.drawable.ic_format_gray))
+            tv_format.apply {
+                typeface = null
+                setTextColor(context.getColor(R.color.text_gray))
+            }
+
+            imv_time.setImageDrawable(context.getDrawable(R.drawable.ic_time_gray))
+            tv_time.apply {
+                typeface = null
+                setTextColor(context.getColor(R.color.text_gray))
+            }
+            imv_oval.gone()
+            imv_canceled.visible()
+        }
     }
 
     private fun oldTimeItem(holder: NormalViewHolder) {
@@ -45,6 +75,7 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
                 setTextColor(context.getColor(R.color.md_black_1000))
             }
             imv_oval.gone()
+            imv_canceled.gone()
         }
     }
 
@@ -67,6 +98,7 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
                 setTextColor(context.getColor(R.color.text_color_daytime_red))
             }
             imv_oval.visible()
+            imv_canceled.gone()
         }
     }
 
@@ -83,10 +115,16 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
                     tv_format.text = context.getString(R.string.lable_online)
                 }
 
-                if(it!!.time_status == OLD_TIME){
-                    oldTimeItem(holder)
-                }else{
-                    nextTimeItem(holder)
+                when(it!!.time_status){
+                    OLD_TIME -> {
+                        oldTimeItem(holder)
+                    }
+                    NEW_TIME -> {
+                        nextTimeItem(holder)
+                    }
+                    else -> {
+                        canceledItem(holder)
+                    }
                 }
             }
         }
@@ -95,6 +133,7 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
     companion object{
         const val OFFLINE = 1
         const val OLD_TIME = 0
+        const val NEW_TIME = 1
     }
 
 }
