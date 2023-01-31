@@ -141,7 +141,7 @@
             android:layout_alignParentEnd="true"
             android:background="@drawable/shape_border_canceled"
             android:text="@string/label_canceled"
-            android:visibility="v"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/imv_oval"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
