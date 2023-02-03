@@ -43,7 +43,7 @@
 <!--            android:layout_marginEnd="@dimen/margin_24_dp"-->
 <!--            app:layout_constraintEnd_toEndOf="parent"/>-->
 <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-    <com.beetech.hsba.ui.MyCustomView
+    <com.beetech.hsba.custom.MyCustomView
         android:id="@+id/my_custom_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

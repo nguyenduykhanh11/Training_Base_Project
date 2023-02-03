@@ -26,23 +26,24 @@ class LoginFragment : BaseFragment() {
     }
 
     override fun initData() {
-        viewModel.data.observe(viewLifecycleOwner) {
-            handleObjectResponse(it)
-        }
+
     }
 
     override fun initListener() {
         btn_login?.setOnClickListener {
             hintKeyBoard()
-            viewModel.login(edt_user_name!!.stringVal, edt_password!!.stringVal)
+            with(viewModel){
+                login(edt_user_name!!.stringVal, edt_password!!.stringVal)
+                data.observe(viewLifecycleOwner) {
+                        handleObjectResponse(it)
+                }
+            }
         }
     }
 
 
     override fun <U> getObjectResponse(data: U) {
-        if (data is Data) {
-            Snackbar.make(cl_container, Category.Successfully.CategoryError, Snackbar.LENGTH_SHORT)
-                .show()
+        if ((data is Data)) {
             getVC().replaceFragment(HomeScreenFragment::class.java)
         }
     }

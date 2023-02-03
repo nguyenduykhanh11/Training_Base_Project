@@ -47,7 +47,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(context: Context): OkHttpClient {
+    fun provideHttpClient(context: Context, sharedPref: SharePreference): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 
@@ -60,6 +60,7 @@ class NetworkModule {
             builder.addHeader("Content-Type", "application/json")
             builder.addHeader("version", "2.0.0")
             builder.addHeader("device", "1")
+            builder.addHeader("Authorization", "Bearer ${sharedPref.checkSharePref().accessToken?:""}")
             chain.proceed(builder.build())
         }
         return OkHttpClient.Builder()

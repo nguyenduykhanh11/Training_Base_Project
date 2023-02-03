@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.patient.PatientFragment">
 
-    <com.beetech.hsba.ui.MyCustomView
+    <com.beetech.hsba.custom.MyCustomView
         android:id="@+id/my_custom_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

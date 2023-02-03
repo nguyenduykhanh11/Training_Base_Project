@@ -38,7 +38,7 @@
         <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
         <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-        <com.beetech.hsba.ui.MyCustomView
+        <com.beetech.hsba.custom.MyCustomView
             android:id="@+id/my_custom_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

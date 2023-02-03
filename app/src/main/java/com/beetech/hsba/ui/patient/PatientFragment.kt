@@ -1,5 +1,6 @@
 package com.beetech.hsba.ui.patient
 
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
@@ -13,11 +14,12 @@ import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.patient.ScheduleHealthCheck
 import com.beetech.hsba.extension.gone
 import com.beetech.hsba.extension.visible
+import com.beetech.hsba.ui.detailed_medical_examination_schedule.DetailedMedicalExaminationFragment
 import kotlinx.android.synthetic.main.fragment_patient.*
 import kotlinx.android.synthetic.main.fragment_test.my_custom_view
 import kotlinx.android.synthetic.main.my_custom_view.*
 
-class PatientFragment : BaseFragment(){
+class PatientFragment : BaseFragment() {
     private val viewModel: PatientViewModel by activityViewModels()
     private lateinit var mAdapter: ScheduleHealthCheckAdapter
     override fun backFromAddFragment() {
@@ -41,6 +43,15 @@ class PatientFragment : BaseFragment(){
     override fun initListener() {
         setUpEventRefresh()
         setUpEventLoadMore()
+        setUpListenerClickItem()
+    }
+
+    private fun setUpListenerClickItem() {
+        mAdapter.onClickItem = {
+            getVC().addFragment(DetailedMedicalExaminationFragment::class.java, Bundle().apply {
+                putInt(KEY_ID_PATIENT, it.id)
+            })
+        }
     }
 
     override fun backPressed(): Boolean {
@@ -72,7 +83,8 @@ class PatientFragment : BaseFragment(){
         val handle = Handler(Looper.myLooper()!!)
         handle.postDelayed(runnable, 1000)
     }
-    private val runnable = Runnable{
+
+    private val runnable = Runnable {
         pgb_load_data_patient.gone()
     }
 
@@ -127,5 +139,7 @@ class PatientFragment : BaseFragment(){
         }
     }
 
-
+    companion object {
+        const val KEY_ID_PATIENT = "KEY_ID_PATIENT"
+    }
 }

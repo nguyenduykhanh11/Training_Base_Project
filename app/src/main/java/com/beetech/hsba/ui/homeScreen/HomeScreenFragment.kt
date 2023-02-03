@@ -1,12 +1,29 @@
 package com.beetech.hsba.ui.homeScreen
 
+import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
 import com.beetech.hsba.R
 import com.beetech.hsba.adapter.adapterHomeScreen.ViewPegerBottomNavigation
 import com.beetech.hsba.base.BaseFragment
+import com.beetech.hsba.ui.tab_common.TabCommonFragment
+import com.beetech.hsba.utils.RxBus
 import kotlinx.android.synthetic.main.home_screen_fragment.*
 
-class HomeScreenFragment: BaseFragment() {
-    private lateinit var mPegerAdapter: ViewPegerBottomNavigation
+class HomeScreenFragment : BaseFragment() {
+    private lateinit var mPegerAdapter: ViewPegerBottomNavigation<Fragment>
+    private val mFragments = arrayListOf<Fragment>(getFragment(TAB_HOME),
+        getFragment(TAB_PATIENT),
+        getFragment(TAB_TEST),
+        getFragment(TAB_BRIEF),
+        getFragment(TAB_ACCOUNT))
+
+    private fun getFragment(index: Int) = TabCommonFragment().apply {
+        arguments = Bundle().apply {
+            putInt(KEY_TAB_FRAGMENT, index)
+        }
+    }
+
     override fun backFromAddFragment() {
 
     }
@@ -19,9 +36,12 @@ class HomeScreenFragment: BaseFragment() {
     }
 
     private fun setUpView() {
-        vp_with_bottom_navigation.isUserInputEnabled = false
-        mPegerAdapter = ViewPegerBottomNavigation(fragmentManager = childFragmentManager, lifecycle)
+        mPegerAdapter =
+            ViewPegerBottomNavigation(requireContext(), mFragments, childFragmentManager, lifecycle)
+//        mPegerAdapter = ViewPegerBottomNavigation(childFragmentManager, lifecycle)
         vp_with_bottom_navigation.adapter = mPegerAdapter
+        vp_with_bottom_navigation.isUserInputEnabled = false
+        vp_with_bottom_navigation.offscreenPageLimit = mFragments.size
     }
 
     override fun initData() {
@@ -35,24 +55,23 @@ class HomeScreenFragment: BaseFragment() {
         bnv_home.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> {
-                    vp_with_bottom_navigation.setCurrentItem(0, false)
+                    setUpFragment(TAB_HOME)
                     true
                 }
                 R.id.menu_patient -> {
-                    vp_with_bottom_navigation.setCurrentItem(1, false)
+                    setUpFragment(TAB_PATIENT)
                     true
                 }
                 R.id.menu_test -> {
-                    vp_with_bottom_navigation.setCurrentItem(2, false)
+                    setUpFragment(TAB_TEST)
                     true
                 }
                 R.id.menu_brief -> {
-
-                    vp_with_bottom_navigation.setCurrentItem(3, false)
+                    setUpFragment(TAB_BRIEF)
                     true
                 }
                 R.id.menu_account -> {
-                    vp_with_bottom_navigation.setCurrentItem(4, false)
+                    setUpFragment(TAB_ACCOUNT)
                     true
                 }
                 else -> false
@@ -60,8 +79,23 @@ class HomeScreenFragment: BaseFragment() {
         }
     }
 
+    private fun setUpFragment(position: Int) {
+        vp_with_bottom_navigation.setCurrentItem(position, false)
+        (mFragments[vp_with_bottom_navigation.currentItem] as? BaseFragment)?.getVC()
+            ?.removeAllFragmentExceptFirst()
+    }
 
     override fun backPressed(): Boolean {
-        return true
+        Log.d("this", "đã đến đây")
+        return false
+    }
+
+    companion object {
+        const val KEY_TAB_FRAGMENT = "KEY_TAB_FRAGMENT"
+        const val TAB_ACCOUNT = 4
+        const val TAB_BRIEF = 3
+        const val TAB_PATIENT = 1
+        const val TAB_TEST = 2
+        const val TAB_HOME = 0
     }
 }

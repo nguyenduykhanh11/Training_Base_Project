@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/bg_color_fragment_medda"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.beetech.hsba.custom.MyCustomView
+            android:id="@+id/custom_detail_medical_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_info_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imv_user_name"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_user" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12.11dp"
+                    android:layout_toEndOf="@+id/imv_user_name"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:importantForAutofill="no"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:text="@string/lable_name"
+                        android:textColor="@color/text_black1"
+                        android:textSize="@dimen/textsize_16_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_user_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:importantForAutofill="no"
+                        android:text="@string/lable_address_user"
+                        android:textColor="@color/text_black1"
+                        android:textSize="@dimen/textsize_16_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_user_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:importantForAutofill="no"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:text="@string/label_detailed_phone"
+                        android:textColor="@color/text_black1"
+                        android:textSize="@dimen/textsize_16_sp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/shape_dotted_line" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_department"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/rl_info_user">
+
+                <ImageView
+                    android:id="@+id/imv_department"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12.11dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_sick" />
+
+                <TextView
+                    android:id="@+id/tv_department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:importantForAutofill="no"
+                    android:maxLines="1"
+                    android:text="@string/lable_infectious_hepatitis"
+                    android:textColor="@color/text_black1"
+                    android:textSize="@dimen/textsize_16_sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                app:layout_constraintTop_toBottomOf="@+id/ll_department">
+
+                <ImageView
+                    android:id="@+id/imv_doctor"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_user" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12.11dp"
+                    android:layout_toEndOf="@+id/imv_doctor"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_doctor_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:importantForAutofill="no"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:text="@string/label_dortor_name"
+                        android:textColor="@color/text_black1"
+                        android:textSize="@dimen/textsize_16_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_doctor_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:importantForAutofill="no"
+                        android:text="@string/label_doctor_service"
+                        android:textColor="@color/text_black1"
+                        android:textSize="@dimen/textsize_16_sp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/shape_dotted_line" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/rl_doctor">
+                <ImageView
+                    android:id="@+id/imv_calendar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12.11dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_calendar" />
+
+                <TextView
+                    android:id="@+id/tv_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:importantForAutofill="no"
+                    android:maxLines="1"
+                    android:text="@string/lable_day"
+                    android:textColor="@color/text_black1"
+                    android:textSize="@dimen/textsize_16_sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16.65dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ll_calendar">
+
+                <ImageView
+                    android:id="@+id/imv_time"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12.11dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_time" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:importantForAutofill="no"
+                    android:maxLines="1"
+                    android:text="@string/label_detailed_time"
+                    android:textColor="@color/text_black1"
+                    android:textSize="@dimen/textsize_16_sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16.65dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ll_time">
+
+                <ImageView
+                    android:id="@+id/imv_form"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12.11dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_format" />
+
+                <TextView
+                    android:id="@+id/tv_form"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:importantForAutofill="no"
+                    android:maxLines="1"
+                    android:text="@string/lable_online"
+                    android:textColor="@color/text_black1"
+                    android:textSize="@dimen/textsize_16_sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="23.35dp"
+                app:layout_constraintTop_toBottomOf="@+id/ll_form">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_16_sp"
+                    android:textColor="@color/md_black_1000"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/label_detailed_note"/>
+                <TextView
+                    android:id="@+id/tv_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_16_sp"
+                    android:textColor="@color/md_black_1000"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="5"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_see_medical_examination_results"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45_dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginStart="@dimen/margin_30_dp"
+            android:layout_marginEnd="@dimen/margin_30_dp"
+            android:background="@drawable/shape_bg_bottom_login"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/see_medical_examination_results"
+            android:textAlignment="center"
+            android:textColor="@color/login_while"
+            android:textSize="@dimen/textsize_16_sp"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:id="@+id/btn_update_medical_examination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_bottom_login"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="65dp"
+            android:layout_marginStart="@dimen/margin_30_dp"
+            android:layout_marginEnd="@dimen/margin_30_dp"
+            android:paddingVertical="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_update_medical_exammination"
+                android:textAllCaps="true"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/md_white_1000"
+                android:textSize="@dimen/textsize_16_sp" />
+
+            <TextView
+                android:fontFamily="@font/roboto_italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_update_if_any"
+                android:textColor="@color/md_white_1000"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel_medical_examination"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_45_dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="@dimen/margin_30_dp"
+            android:layout_marginEnd="@dimen/margin_30_dp"
+            android:background="@drawable/shape_bg_cancel_schedule_medial"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/label_update_medical_examination"
+            android:textAlignment="center"
+            android:textColor="@color/login_while"
+            android:textSize="@dimen/textsize_16_sp"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

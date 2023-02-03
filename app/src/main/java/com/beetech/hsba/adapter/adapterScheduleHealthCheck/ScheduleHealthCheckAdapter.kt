@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.item_schedule_health_check.view.*
 
 
 class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAdapter(context = context, false) {
+    var onClickItem: (ScheduleHealthCheck) -> Unit = {}
+
     override fun initNormalViewHolder(parent: ViewGroup): RecyclerView.ViewHolder? {
         return ListTestViewHordel(parent.inflate(R.layout.item_schedule_health_check))
     }
@@ -81,7 +83,7 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
 
     private fun nextTimeItem(holder: NormalViewHolder) {
         with(holder.itemView){
-            ll_container.setBackgroundColor(context!!.getColor(R.color.md_white_1000))
+            ll_container.background = context!!.getDrawable(R.drawable.shape_bg_select_item_schedule_health)
 
             imv_sick.setImageDrawable(context.getDrawable(R.drawable.icon_sick))
             tv_sick.typeface = ResourcesCompat.getFont(context, R.font.roboto_bold)
@@ -114,18 +116,26 @@ class ScheduleHealthCheckAdapter(context: Context): EndlessLoadingRecyclerViewAd
                 }else{
                     tv_format.text = context.getString(R.string.lable_online)
                 }
+            }
+        }
 
-                when(it!!.time_status){
-                    OLD_TIME -> {
-                        oldTimeItem(holder)
-                    }
-                    NEW_TIME -> {
-                        nextTimeItem(holder)
-                    }
-                    else -> {
-                        canceledItem(holder)
-                    }
+        item.let {
+            when(it!!.time_status){
+                OLD_TIME -> {
+                    oldTimeItem(holder)
                 }
+                NEW_TIME -> {
+                    nextTimeItem(holder)
+                }
+                else -> {
+                    canceledItem(holder)
+                }
+            }
+        }
+
+        item?.let {
+            holder.itemView.ll_container.setOnClickListener {
+                onClickItem(item)
             }
         }
     }

@@ -18,6 +18,7 @@ import com.beetech.hsba.utils.Define
 
 abstract class BaseFragment: Fragment() {
     private var viewController : ViewController? = null
+    protected var mSavedInstanceState: Bundle? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +30,7 @@ abstract class BaseFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mSavedInstanceState = savedInstanceState
         initView()
         initData()
         initListener()

@@ -48,5 +48,6 @@
     <color name="bg_color_fragment_medda">#F2F2F2</color>
 
     <color name="text_gray">#707070</color>
+    <color name="color_brown_red">#B34242</color>
 
 </resources>

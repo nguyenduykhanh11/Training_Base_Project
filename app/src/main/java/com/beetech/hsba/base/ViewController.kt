@@ -7,7 +7,7 @@ import com.beetech.hsba.R
 
 class ViewController(
     private val layoutId: Int = 0,
-    private val fragmentManager: FragmentManager
+    private val fragmentManager: FragmentManager,
 ) {
 
 
@@ -26,10 +26,10 @@ class ViewController(
         currentFragment?.arguments = (data)
         currentFragment?.setVC(this)
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.setCustomAnimations(
-            R.anim.trans_left_in, R.anim.trans_left_out,
-            R.anim.trans_right_in, R.anim.trans_right_out
-        )
+        fragmentTransaction.setCustomAnimations(R.anim.trans_left_in,
+            R.anim.trans_left_out,
+            R.anim.trans_right_in,
+            R.anim.trans_right_out)
         currentFragment?.let {
             fragmentTransaction.replace(layoutId, it).commitAllowingStateLoss()
             listFragment.clear()
@@ -38,11 +38,11 @@ class ViewController(
 
     }
 
-    fun <T : BaseFragment>addFragment(
+    fun <T : BaseFragment> addFragment(
         type: Class<T>,
         data: Bundle? = null,
         hasAnimation: Boolean = true,
-        isHideOldFragment: Boolean = true
+        isHideOldFragment: Boolean = true,
     ) {
         val fragmentTransaction = fragmentManager.beginTransaction()
         if (currentFragment != null) {
@@ -72,15 +72,11 @@ class ViewController(
             fragmentTransaction.add(layoutId, newFragment, type.simpleName)
             if (currentFragment != null) {
                 if (hasAnimation) {
-                    fragmentTransaction.setCustomAnimations(
-                        R.anim.animation_in_delay,
-                        R.anim.animation_in_delay
-                    )
+                    fragmentTransaction.setCustomAnimations(R.anim.animation_in_delay,
+                        R.anim.animation_in_delay)
                 } else {
-                    fragmentTransaction.setCustomAnimations(
-                        R.anim.animation_none,
-                        R.anim.animation_none
-                    )
+                    fragmentTransaction.setCustomAnimations(R.anim.animation_none,
+                        R.anim.animation_none)
                 }
                 fragmentTransaction.setMaxLifecycle(currentFragment!!, Lifecycle.State.STARTED)
             }
@@ -105,9 +101,7 @@ class ViewController(
                 currentFragment?.arguments = (data)
             }
             currentFragment?.apply {
-                fragmentTransaction.setMaxLifecycle(
-                    this, Lifecycle.State.RESUMED
-                )
+                fragmentTransaction.setMaxLifecycle(this, Lifecycle.State.RESUMED)
                 setVC(this@ViewController)
             }
             fragmentTransaction.setCustomAnimations(R.anim.animation_none, R.anim.animation_none)
@@ -120,7 +114,7 @@ class ViewController(
         }
     }
 
-    fun removeAllFragment(){
+    fun removeAllFragment() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         for (i in listFragment.size - 1 downTo 0) {
             fragmentTransaction.remove(listFragment[i])
@@ -145,13 +139,11 @@ class ViewController(
             }
             currentFragment?.let {
                 it.setVC(this)
-                fragmentTransaction.setMaxLifecycle(
-                    it, Lifecycle.State.RESUMED
-                )
-                fragmentTransaction.setCustomAnimations(
-                    R.anim.trans_left_in, R.anim.trans_left_out,
-                    R.anim.trans_right_in, R.anim.trans_right_out
-                )
+                fragmentTransaction.setMaxLifecycle(it, Lifecycle.State.RESUMED)
+                fragmentTransaction.setCustomAnimations(R.anim.trans_left_in,
+                    R.anim.trans_left_out,
+                    R.anim.trans_right_in,
+                    R.anim.trans_right_out)
                 fragmentTransaction.show(it)
                 fragmentTransaction.commitAllowingStateLoss()
             }
