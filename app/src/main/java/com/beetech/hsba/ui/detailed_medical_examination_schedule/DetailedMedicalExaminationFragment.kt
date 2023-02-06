@@ -1,5 +1,6 @@
 package com.beetech.hsba.ui.detailed_medical_examination_schedule
 
+import android.util.Log
 import androidx.fragment.app.activityViewModels
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
@@ -84,6 +85,7 @@ class DetailedMedicalExaminationFragment : BaseFragment() {
     }
 
     override fun backPressed(): Boolean {
+        getVC().backFromAddFragment()
         return false
     }
 

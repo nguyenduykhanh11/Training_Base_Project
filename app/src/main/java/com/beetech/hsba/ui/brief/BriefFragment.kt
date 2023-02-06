@@ -6,12 +6,13 @@ import android.graphics.drawable.ColorDrawable
 import com.beetech.hsba.R
 import com.beetech.hsba.adapter.adapterBrief.SelectsOptionBloodGroupAdapter
 import com.beetech.hsba.base.BaseFragment
+import com.beetech.hsba.ui.homeScreen.HomeScreenFragment
 import kotlinx.android.synthetic.main.fragment_brief.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class BriefFragment : BaseFragment(){
+class BriefFragment : BaseFragment() {
     private lateinit var mAdapter: SelectsOptionBloodGroupAdapter
     override fun backFromAddFragment() {
 
@@ -22,13 +23,14 @@ class BriefFragment : BaseFragment(){
 
     override fun initView() {
         val data = getString(R.string.lable_phone)
-        masked_edt_phone.setMaskedText(data.replace(" ",""))
+        masked_edt_phone.setMaskedText(data.replace(" ", ""))
         inputTextFormatDate()
     }
 
     override fun initData() {
 
     }
+
     fun formatTime(date: Date, format: String): String {
         val simpleDateFormat = SimpleDateFormat(format, Locale.getDefault())
         return simpleDateFormat.format(date)
@@ -57,19 +59,21 @@ class BriefFragment : BaseFragment(){
 
 
     override fun initListener() {
-
+        setEventBackFragment()
     }
 
     override fun backPressed(): Boolean {
         return false
     }
 
-    override fun onResume() {
-//        edt_user_name.requestFocus()
-        super.onResume()
+    private fun setEventBackFragment() {
+        my_custom_view.onBackClick = {
+            (parentFragment?.parentFragment as HomeScreenFragment).backPressed()
+        }
     }
 
-    companion object{
+
+    companion object {
         const val FORMAT_TIME = "dd / MM / yyyy"
     }
 

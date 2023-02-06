@@ -1,13 +1,11 @@
 package com.beetech.hsba.ui.homeScreen
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import com.beetech.hsba.R
 import com.beetech.hsba.adapter.adapterHomeScreen.ViewPegerBottomNavigation
 import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.ui.tab_common.TabCommonFragment
-import com.beetech.hsba.utils.RxBus
 import kotlinx.android.synthetic.main.home_screen_fragment.*
 
 class HomeScreenFragment : BaseFragment() {
@@ -86,8 +84,23 @@ class HomeScreenFragment : BaseFragment() {
     }
 
     override fun backPressed(): Boolean {
-        Log.d("this", "đã đến đây")
-        return false
+        val currentPage = (mFragments[vp_with_bottom_navigation.currentItem] as BaseFragment)
+        val currentSize = currentPage.getVC().getCurrentSize()
+        return if (currentSize < 2) {
+            if (vp_with_bottom_navigation.currentItem == TAB_HOME) {
+                true
+            } else {
+                backHome()
+                false
+            }
+        } else {
+            currentPage.getVC().currentFragment?.backPressed() ?: true
+        }
+    }
+
+    fun backHome() {
+        setUpFragment(TAB_HOME)
+        bnv_home.selectedItemId = R.id.menu_home
     }
 
     companion object {

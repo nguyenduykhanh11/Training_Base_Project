@@ -15,6 +15,7 @@ import com.beetech.hsba.entity.patient.ScheduleHealthCheck
 import com.beetech.hsba.extension.gone
 import com.beetech.hsba.extension.visible
 import com.beetech.hsba.ui.detailed_medical_examination_schedule.DetailedMedicalExaminationFragment
+import com.beetech.hsba.ui.homeScreen.HomeScreenFragment
 import kotlinx.android.synthetic.main.fragment_patient.*
 import kotlinx.android.synthetic.main.fragment_test.my_custom_view
 import kotlinx.android.synthetic.main.my_custom_view.*
@@ -44,6 +45,7 @@ class PatientFragment : BaseFragment() {
         setUpEventRefresh()
         setUpEventLoadMore()
         setUpListenerClickItem()
+        setEventBackFragment()
     }
 
     private fun setUpListenerClickItem() {
@@ -56,6 +58,12 @@ class PatientFragment : BaseFragment() {
 
     override fun backPressed(): Boolean {
         return false
+    }
+
+    private fun setEventBackFragment() {
+        my_custom_view.onBackClick = {
+            (parentFragment?.parentFragment as HomeScreenFragment).backPressed()
+        }
     }
 
     private fun setUpView() {

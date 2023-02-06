@@ -13,6 +13,7 @@ import com.beetech.hsba.base.entity.BaseError
 import com.beetech.hsba.entity.Test.Test
 import com.beetech.hsba.extension.gone
 import com.beetech.hsba.extension.visible
+import com.beetech.hsba.ui.homeScreen.HomeScreenFragment
 import kotlinx.android.synthetic.main.fragment_test.*
 import kotlinx.android.synthetic.main.my_custom_view.*
 
@@ -45,10 +46,16 @@ class   TestFragment : BaseFragment() {
     override fun initListener() {
         setUpEventRefresh()
         setUpEventLoadMore()
+        setEventBackFragment()
     }
 
     override fun onResume() {
         super.onResume()
+    }
+    private fun setEventBackFragment() {
+        my_custom_view.onBackClick = {
+            (parentFragment?.parentFragment as HomeScreenFragment).backPressed()
+        }
     }
 
     override fun backPressed(): Boolean {

@@ -9,11 +9,18 @@
     android:orientation="vertical"
     android:background="@color/bg_color_fragment_medda"
     tools:context=".ui.account.AccountFragment">
-
-    <include
-        android:id="@+id/custom_view_header"
-        layout="@layout/custom_view_header_account" />
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/custom_view_header"
+            layout="@layout/custom_view_header_account" />
+        <com.beetech.hsba.custom.MyCustomView
+            android:id="@+id/custom_header_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </FrameLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

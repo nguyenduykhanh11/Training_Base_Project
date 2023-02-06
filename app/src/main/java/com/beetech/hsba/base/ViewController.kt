@@ -153,4 +153,6 @@ class ViewController(
             false
         }
     }
+
+    fun getCurrentSize() = listFragment.size
 }
